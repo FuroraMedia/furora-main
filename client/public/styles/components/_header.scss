@@ -1,0 +1,21 @@
+// .cls-2 {
+//   fill: red;
+// }
+
+@include block(c-header) {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  @include element(container) {
+      margin: 0 30px;
+  }
+  
+  @include element(title) {
+    text-align: center;
+    margin-top: 200px;
+  }
+  
+}

@@ -1,0 +1,75 @@
+// BEM mixins for laying out modules.
+// Based on:
+//
+// https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+
+$element-separator: '__' !default;
+$modifier-separator: '--' !default;
+
+// Creates a "block" in a BEM module.
+//
+//   $name - The name of the block (omit the ".")
+//
+@mixin block($name) {
+  .#{$name} {
+    @content;
+  }
+}
+
+// Creates an "element" in a BEM module. Will automatically handle prepending
+// block and element classes if necessary.
+//
+//   $name - The name of the element (omit the "__")
+//
+@mixin element($name) {
+  $selector: #{&};
+
+  // When an element is nested under another element
+  // (possibly because of a modifier)
+  @if str-index($selector, $element-separator) {
+    $block: bem-get-block($selector, $element-separator);
+    @at-root {
+      #{$selector} {
+        #{$block + $element-separator + $name} {
+          @content;
+        }
+      }
+    }
+  }
+  // When an element is nested under a block with a modifier
+  @else if str-index($selector, $modifier-separator) {
+    $block: bem-get-block($selector, $modifier-separator);
+    @at-root {
+      #{$selector} {
+        #{$block + $element-separator + $name} {
+          @content;
+        }
+      }
+    }
+  }
+  @else {
+    @at-root {
+      #{$selector + $element-separator + $name} {
+        @content;
+      }
+    }
+  }
+}
+
+// Modifies either a "block" or "element".
+//
+//   $name - The name of the modifier (omit the "--")
+//
+@mixin modifier($name) {
+  @at-root {
+    #{&}#{$modifier-separator + $name} {
+      @content;
+    }
+  }
+}
+
+// Returns the block class name in the given parent selector.
+@function bem-get-block($selector, $separator) {
+  $separator-start: str-index($selector, $separator);
+  @return str-slice($selector, 0, $separator-start - 1);
+}
