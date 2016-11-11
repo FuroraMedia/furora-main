@@ -8,7 +8,9 @@ const config = require('../webpack.config.dev');
 // var config = require('./webpack.config.prod');
 const favicon = require('serve-favicon');
 
-const port = 7000;
+const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const serverConfig = require('./config/config')[env];
+
 const app = express();
 // app.use(compression());
 
@@ -29,11 +31,11 @@ app.get('*', (req, res) => {
 // app.use('/static', express.static(path.join(__dirname, '../client/src')));
 
 
-app.listen(port, 'localhost', (err) => {
+app.listen(serverConfig.port, 'localhost', (err) => {
   if (err) {
     console.log(err);
     return;
   }
 
-  console.log('Listening at http://localhost:' + port);
+  console.log('Listening at http://localhost:' + serverConfig.port);
 });

@@ -13,7 +13,8 @@ const express = require('express');
 const compression = require('compression');
 const path = require('path');
 
-const port = 80;
+const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const serverConfig = require('./config/config')[env];
 
 const app = express();
 
@@ -45,10 +46,10 @@ app.use('/static', express.static('../client/public/'));
 // })
 
 
-app.listen(port, function (err) {
+app.listen(serverConfig.port, function (err) {
   if (err) {
     console.log(err);
   } else {
-    console.log('listening on port', port);
+    console.log('listening on port', serverConfig.port);
   }
 });
