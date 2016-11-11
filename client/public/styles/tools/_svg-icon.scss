@@ -1,0 +1,21 @@
+///* ========================================================================
+//   #SVG ICONS
+//   ======================================================================== */
+
+// Convert any px value into its rem equivalent.
+
+
+// SVG mixin
+@mixin svg-icon($path, $width:16px, $height:16px, $cover:true) {
+  background-image: url($path);
+
+  @if $cover == true {
+    background-size: cover;
+
+  } else {
+  background-size: $width $height;
+}
+
+  width: $width;
+  height: $height;
+}

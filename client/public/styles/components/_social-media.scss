@@ -1,0 +1,20 @@
+@include block(c-social-media) {
+  float: right;
+  list-style-type: none;
+  
+  @include modifier(light) {
+    
+    @include element(icon) {
+      fill: $white;
+      
+      &:hover {
+        fill: #f1f1f1;
+      }
+    }
+  }
+  
+  @include element(item) {
+    float: left;
+    margin-right: 15px;
+  }
+}

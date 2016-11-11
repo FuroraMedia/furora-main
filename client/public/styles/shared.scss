@@ -1,0 +1,26 @@
+
+
+@import 'settings/global';
+@import 'settings/colors';
+
+@import 'tools/bem';
+@import 'tools/rem';
+@import 'tools/font-face';
+@import 'tools/font-size';
+@import 'tools/clearfix';
+@import 'tools/hidden';
+@import 'tools/svg-icon';
+@import 'tools/prefix';
+
+
+@import 'generic/normalize';
+@import 'generic/reset';
+@import 'generic/box-sizing';
+
+@import 'elements/page';
+@import 'elements/headings';
+
+@import 'components/footer';
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/social-media';
