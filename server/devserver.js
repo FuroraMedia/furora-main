@@ -24,11 +24,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
-// app.use('/static', express.static(path.join(__dirname, '../client/src')));
+app.use('/static', express.static(path.join(__dirname, '../client/public')));
 
 
 app.listen(serverConfig.port, 'localhost', (err) => {

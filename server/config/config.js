@@ -4,7 +4,7 @@ module.exports = {
   test: {
     port: process.env.PORT || 3001,
   },
-  developement: {
+  development: {
     port: process.env.PORT || 7000,
   },
   production: {

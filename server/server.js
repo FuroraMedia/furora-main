@@ -10,20 +10,23 @@ const express = require('express');
 // const Provider = ReactRedux.Provider;
 // const Store = require('./js/Store.jsx')
 // const store = Store.store;
-const compression = require('compression');
+//const compression = require('compression');
 const path = require('path');
+const favicon = require('serve-favicon');
 
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const serverConfig = require('./config/config')[env];
 
 const app = express();
+app.use(favicon(path.join(__dirname, '/favicon.ico')));
 
-app.use(compression());
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/public/index.html'));
+// app.use(compression());
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
-// app.use(favicon(path.join(__dirname, '..', 'static', 'favicon.ico')));
-app.use('/static', express.static('../client/public/'));
+
+app.use('/static', express.static(path.join(__dirname, '../client/dist')));
+
 
 // app.use((req, res) => {
 //   match({
@@ -46,7 +49,7 @@ app.use('/static', express.static('../client/public/'));
 // })
 
 
-app.listen(serverConfig.port, function (err) {
+app.listen(serverConfig.port, (err) => {
   if (err) {
     console.log(err);
   } else {

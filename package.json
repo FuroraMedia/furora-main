@@ -4,6 +4,7 @@
   "description": "portfolio site of furora media ltd",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --config webpack.config.prod.js -p",
     "client": "node server/devserver.js",
     "start": "npm run client"
   },

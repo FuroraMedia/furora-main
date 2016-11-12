@@ -7,7 +7,7 @@ module.exports = {
   // noInfo: false,
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './client/index.jsx',
+    './client/public/index.jsx',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
