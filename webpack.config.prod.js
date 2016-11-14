@@ -2,6 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const GLOBALS = {
+  'process.env.NODE_ENV': JSON.stringify('production')
+};
+
 module.exports = {
   //debug: true,
   // devtool: 'source-map',
@@ -13,7 +17,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.DefinePlugin(GLOBALS),
+    new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
