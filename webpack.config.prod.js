@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  debug: true,
+  //debug: true,
   // devtool: 'source-map',
   entry: ['./client/index.jsx'],
   output: {
@@ -16,9 +16,19 @@ module.exports = {
     // new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new webpack.optimize.DedupePlugin(),
-    //new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
-
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: ['node_modules'],
+  },
+  preLoaders: [
+    {
+      test: /\.jsx?$/,
+      loader: 'eslint-loader',
+      exclude: /node_modules/,
+    },
+  ],
   module: {
     loaders: [
       {

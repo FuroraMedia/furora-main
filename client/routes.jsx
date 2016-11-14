@@ -8,8 +8,6 @@ import error404 from './src/components/error/404';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    {/* <Route path="/about" component={AboutPage} />
-    <Route path="products" component={ProductListPage} /> */}
     <Route path="*" component={error404} />
   </Route>
 );
