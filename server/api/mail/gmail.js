@@ -9,9 +9,9 @@ const xoauth2 = require('xoauth2');
 const generator = xoauth2.createXOAuth2Generator({
   user: config.gmail.client_user,
   clientId: config.gmail.client_id,
-  ClientSecret: config.gmail.secret,
-  refresh_token: config.gmail.refresh_token,
-  access_token: config.gmail.access_token,
+  clientSecret: config.gmail.secret,
+  refreshToken: config.gmail.refresh_token,
+  accessToken: config.gmail.access_token,
 });
 
 generator.on('token', (token) => {
@@ -30,7 +30,7 @@ module.exports = (req, res) => {
     from: req.body.name + req.body.email,
     to: config.mail.contact_address,
     subject: 'Website contact',
-    text: req.body.message,
+    text: 'Hello from' + req.body.name + '<br />' + req.body.message,
   }, (err, info) => {
     if (err) {
       console.log(err);

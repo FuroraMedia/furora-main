@@ -16,10 +16,10 @@ const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
 module.exports = (req, res) => {
   nodemailerMailgun.sendMail({
-    from: req.body.name + req.body.email,
+    from: req.body.email,
     to: config.mail.contact_address,
     subject: 'Website contact',
-    text: req.body.message,
+    text: 'Hello from' + req.body.name + '<br />' + req.body.message,
   }, (err, info) => {
     if (err) {
       console.log(err);
