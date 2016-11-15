@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-exports.gmail = (req, res) => {
+module.exports = (req, res) => {
   transporter.sendMail({
     from: req.body.name + req.body.email,
     to: config.mail.contact_address,
@@ -36,7 +36,7 @@ exports.gmail = (req, res) => {
       console.log(err);
       res.send('error');
     } else {
-      console.log('Message sent: ' + info.responce);
+      console.log('Message sent: ' + info);
       res.end('sent');
     }
   });

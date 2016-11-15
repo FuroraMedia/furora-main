@@ -1,10 +1,10 @@
 
 const mail = require('express').Router();
 
-// const gmail = require('./gmail');
+const gmail = require('./gmail');
 const mailGun = require('./mailGun');
 
-// mail.post('/gmail', gmail);
+mail.post('/gmail', gmail);
 mail.post('/mailGun', mailGun);
 
 mail.get('/', (req, res, next) => {

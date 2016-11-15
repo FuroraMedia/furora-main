@@ -12,11 +12,9 @@ const auth = {
   },
 };
 
-console.log(auth)
-
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   nodemailerMailgun.sendMail({
     from: req.body.name + req.body.email,
     to: config.mail.contact_address,
