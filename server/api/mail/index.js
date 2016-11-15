@@ -1,8 +1,14 @@
 
-const mailGun = require('./mailGun');
-const Gmail = require('./gmail');
+const mail = require('express').Router();
 
-module.exports = function (app, env) {
-  app.post('/mail', mailGun);
-  app.post('/gmail', Gmail);
-};
+// const gmail = require('./gmail');
+const mailGun = require('./mailGun');
+
+// mail.post('/gmail', gmail);
+mail.post('/mailGun', mailGun);
+
+mail.get('/', (req, res, next) => {
+  res.status(200).json({ message: 'Connected!' });
+});
+
+module.exports = mail;

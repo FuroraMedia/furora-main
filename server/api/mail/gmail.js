@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-const config = require('../config/config')[env];
+const config = require('../../config/config')[env];
 
 const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-module.exports = (req, res) => {
+exports.gmail = (req, res) => {
   transporter.sendMail({
     from: req.body.name + req.body.email,
     to: config.mail.contact_address,
