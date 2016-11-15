@@ -3,7 +3,7 @@
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const nodemailer = require('nodemailer');
 const mg = require('nodemailer-mailgun-transport');
-const config = require('../config/config')[env];
+const config = require('../../config/config')[env];
 
 const auth = {
   auth: {
@@ -12,10 +12,11 @@ const auth = {
   },
 };
 
+console.log(auth)
 
 const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
   nodemailerMailgun.sendMail({
     from: req.body.name + req.body.email,
     to: config.mail.contact_address,

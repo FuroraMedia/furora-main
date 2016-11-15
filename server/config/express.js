@@ -13,6 +13,8 @@ const compression = require('compression');
 // const Store = require('./js/Store.jsx')
 // const store = Store.store;
 
+const api = require('../api/');
+
 module.exports = (app) => {
   app.use(favicon(path.join(__dirname, '../favicon.ico')));
   app.use(compression());
