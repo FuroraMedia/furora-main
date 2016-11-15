@@ -29,8 +29,8 @@ module.exports = (req, res) => {
   transporter.sendMail({
     from: req.body.name + req.body.email,
     to: config.mail.contact_address,
-    subject: 'Website contact',
-    text: 'Hello from' + req.body.name + '<br />' + req.body.message,
+    subject: 'GMAIL Website contact',
+    text: req.body.message,
   }, (err, info) => {
     if (err) {
       console.log(err);

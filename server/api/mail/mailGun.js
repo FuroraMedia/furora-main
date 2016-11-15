@@ -18,8 +18,8 @@ module.exports = (req, res) => {
   nodemailerMailgun.sendMail({
     from: req.body.email,
     to: config.mail.contact_address,
-    subject: 'Website contact',
-    text: 'Hello from' + req.body.name + '<br />' + req.body.message,
+    subject: 'MAILGUN site Website contact',
+    text: req.body.message,
   }, (err, info) => {
     if (err) {
       console.log(err);
