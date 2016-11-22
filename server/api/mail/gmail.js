@@ -36,7 +36,7 @@ module.exports = (req, res) => {
       console.log(err);
       res.send('error');
     } else {
-      console.log('Message sent: ' + info);
+      console.log(`Message sent:, ${info}`);
       res.end('sent');
     }
   });

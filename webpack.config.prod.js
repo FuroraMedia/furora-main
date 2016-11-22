@@ -9,7 +9,7 @@ const GLOBALS = {
 module.exports = {
   //debug: true,
   // devtool: 'source-map',
-  entry: ['./client/index.jsx'],
+  entry: ['./client/browserEntry.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
     publicPath: '/',
