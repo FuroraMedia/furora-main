@@ -7,7 +7,7 @@ const api = require('../api');
 
 module.exports = (app) => {
   app.use(favicon(path.join(__dirname, '../favicon.ico')));
-  // app.use(compression());
+  app.use(compression());
   app.use(bodyParser.urlencoded({
     extended: true,
   }));
