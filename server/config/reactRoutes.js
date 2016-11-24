@@ -1,22 +1,21 @@
-const path = require('path');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const renderToString = ReactDOMServer.renderToString;
-const ReactRouter = require('react-router');
-const match = ReactRouter.match;
-const RouterContext = ReactRouter.RouterContext;
-const ReactRedux = require('react-redux');
-const Provider = ReactRedux.Provider;
-const Store = require('../../client/src/store/configureStore');
-const store = Store.store;
+import path from 'path';
+import React from 'react';
 
-const _ = require('lodash');
-const fs = require('fs');
+import { Provider } from 'react-redux';
+import { RouterContext, match } from 'react-router';
+import { renderToString } from 'react-dom/server';
+
+import _ from 'lodash';
+import fs from 'fs';
+
+//import Store from '../../client/src/store/configureStore';
+import Routes from '../../client/routes';
+
+//const store = Store.store;
 const baseTemplate = fs.readFileSync(path.join(__dirname, '../index.html'));
 const template = _.template(baseTemplate);
-const Routes = require('../../client/routes.jsx');
 
-module.exports = (app) => {
+const reactRoutes = (app) => {
   app.use((req, res) => {
     match({ routes: Routes, location: req.url }, (err, redirect, props) => {
       if (err) {
@@ -32,3 +31,5 @@ module.exports = (app) => {
     });
   });
 };
+
+export default reactRoutes;

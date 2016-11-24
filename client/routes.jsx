@@ -4,12 +4,12 @@ import Layout from './src/components/App';
 import HomePage from './src/components/home/HomePage';
 import About from './src/components/about/About';
 // import ProductViewPage from './components/productView/ProductViewPage';
-import error404 from './src/components/error/404';
+import Error404 from './src/components/error/404';
 
 module.exports = (
   <Route path="/" component={Layout}>
     <IndexRoute component={HomePage} />
     <Route path="/about" component={About} />
-    <Route path="*" component={error404} />
+    <Route path="*" component={Error404} />
   </Route>
 );

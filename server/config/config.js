@@ -1,6 +1,4 @@
-// const path = require('path');
-
-module.exports = {
+const Config = {
   test: {
     port: process.env.PORT || 3001,
   },
@@ -35,3 +33,11 @@ module.exports = {
     },
   },
 };
+
+const getConfigByEnv = () => {
+  const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+  return Config[env];
+};
+
+Config.getConfigByEnv = getConfigByEnv;
+export default Config;

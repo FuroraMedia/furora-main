@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const purify = require('purifycss-webpack-plugin');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production')

@@ -1,8 +1,7 @@
+import express from 'express';
+const routes = express.Router();
 
-const routes = require('express').Router();
-
-const mail = require('./mail');
-
+import mail from './mail';
 routes.use('/mail', mail);
 
 routes.get('/', (req, res) => {

@@ -1,14 +1,15 @@
 
-const mail = require('express').Router();
+import express from 'express';
+import gmail from './gmail';
+import mailGun from './mailGun';
 
-const gmail = require('./gmail');
-const mailGun = require('./mailGun');
+const mail = express.Router();
 
 mail.post('/gmail', gmail);
 mail.post('/mailGun', mailGun);
 
-mail.get('/', (req, res, next) => {
+mail.get('/', (req, res) => {
   res.status(200).json({ message: 'Connected!' });
 });
 
-module.exports = mail;
+export default mail;
