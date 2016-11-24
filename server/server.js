@@ -1,13 +1,20 @@
 /* eslint-disable no-console */
+require('babel-register')({
+  'plugins': [
+    [
+      'babel-plugin-transform-require-ignore',
+      {
+        extensions: ['.scss'],
+      },
+    ],
+  ],
+});
 const app = require('express')();
 
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const serverConfig = require('./config/config')[env];
-const api = require('./api');
-
 require('./config/express')(app);
-
-app.use('/api/v1', api);
+require('./config/reactRoutes')(app);
 
 app.listen(serverConfig.port, (err) => {
   if (err) {

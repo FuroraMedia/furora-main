@@ -3,3 +3,5 @@ npm-debug.log
 /.idea/
 .DS_Store
 .env
+server.key
+server.pass.key
