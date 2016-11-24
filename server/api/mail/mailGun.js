@@ -1,14 +1,13 @@
-/* eslint-disable no-console */
+import mg from 'nodemailer-mailgun-transport';
+import nodemailer from 'nodemailer';
 
-const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-const nodemailer = require('nodemailer');
-const mg = require('nodemailer-mailgun-transport');
-const config = require('../../config/config')[env];
+import config from '../../config/config';
+const serverConfig = config.getConfigByEnv();
 
 const auth = {
   auth: {
-    api_key: config.mail.api_key,
-    domain: config.mail.domain,
+    api_key: serverConfig.mail.api_key,
+    domain: serverConfig.mail.domain,
   },
 };
 
@@ -17,7 +16,7 @@ const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 module.exports = (req, res) => {
   nodemailerMailgun.sendMail({
     from: req.body.email,
-    to: config.mail.contact_address,
+    to: serverConfig.mail.contact_address,
     subject: 'MAILGUN site Website contact',
     text: req.body.message,
   }, (err, info) => {

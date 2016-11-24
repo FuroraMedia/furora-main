@@ -9,12 +9,17 @@ require('babel-register')({
     ],
   ],
 });
-const app = require('express')();
 
-const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-const serverConfig = require('./config/config')[env];
-require('./config/express')(app);
-require('./config/reactRoutes')(app);
+import express from 'express';
+const app = express();
+import config from './config/config';
+import expressConfig from './config/express';
+import reactRoutes from './config/reactRoutes';
+
+const serverConfig = config.getConfigByEnv();
+
+expressConfig(app);
+reactRoutes(app);
 
 app.listen(serverConfig.port, (err) => {
   if (err) {
@@ -24,4 +29,4 @@ app.listen(serverConfig.port, (err) => {
   }
 });
 
-module.exports = app;
+export default app;

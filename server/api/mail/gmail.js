@@ -1,17 +1,19 @@
 /* eslint-disable no-console */
 
-const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-const config = require('../../config/config')[env];
+// const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+// const config = require('../../config/config')[env];
+import nodemailer from 'nodemailer';
+import xoauth2 from 'xoauth2';
 
-const nodemailer = require('nodemailer');
-const xoauth2 = require('xoauth2');
+import config from '../../config/config';
+const serverConfig = config.getConfigByEnv();
 
 const generator = xoauth2.createXOAuth2Generator({
-  user: config.gmail.client_user,
-  clientId: config.gmail.client_id,
-  clientSecret: config.gmail.secret,
-  refreshToken: config.gmail.refresh_token,
-  accessToken: config.gmail.access_token,
+  user: serverConfig.gmail.client_user,
+  clientId: serverConfig.gmail.client_id,
+  clientSecret: serverConfig.gmail.secret,
+  refreshToken: serverConfig.gmail.refresh_token,
+  accessToken: serverConfig.gmail.access_token,
 });
 
 generator.on('token', (token) => {
@@ -25,10 +27,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-module.exports = (req, res) => {
+const gmail = (req, res) => {
   transporter.sendMail({
     from: req.body.name + req.body.email,
-    to: config.mail.contact_address,
+    to: serverConfig.mail.contact_address,
     subject: 'GMAIL Website contact',
     text: req.body.message,
   }, (err, info) => {
@@ -41,3 +43,5 @@ module.exports = (req, res) => {
     }
   });
 };
+
+export default gmail;
