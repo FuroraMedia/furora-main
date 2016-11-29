@@ -5,10 +5,11 @@
   @include modifier(light) {
     
     @include element(icon) {
+      transition: fill .4s ease;
       fill: $white;
       
       &:hover {
-        fill: #f1f1f1;
+        fill: $blue;
       }
     }
   }

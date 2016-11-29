@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => (
   <footer className="c-footer">
     <small className="c-footer__copy">
-      &copy; Furora Media Ltd 2016. - All Rights Reserved 
+      &copy; Furora Media Ltd 2016. - All Rights Reserved
     </small>
   </footer>
 );

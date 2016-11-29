@@ -1,16 +1,17 @@
 import React from 'react';
+import { reduxForm } from 'redux-form';
 import TextInput from '../common/form/TextInput';
-import SelectInput from '../common/form/SelectInput';
+//import SelectInput from '../common/form/SelectInput';
 
-const CourseForm = ({ course, allAuthors, onSave, onChange, saving, errors} ) => {
+const ContactForm = () => {
   return (
     <form>
-      <h1>Manage Course</h1>
+      <h3>Manage Course</h3>
       <TextInput
-        name="title"
-        label="Title"
+        name="name"
+        label="Your Name"
         //value={course.title}
-        onChange={onChange}
+        // onChange={onChange}
         //error={errors.title}
       />
 
@@ -24,39 +25,37 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, saving, errors} ) =>
       /> */}
 
       <TextInput
-        name="category"
-        label="Category"
+        name="email"
+        label="Your Email"
         //value={course.category}
-        onChange={onChange}
+        // onChange={onChange}
         //error={errors.category}
       />
 
       <TextInput
-        name="length"
-        label="Length"
-        value={course.length}
-        onChange={onChange}
+        name="message"
+        label="Your Message"
+        // value={course.length}
+        // onChange={onChange}
         //error={errors.length}
       />
 
       <input
-        type="submit"
-        disabled={saving}
-        value={saving ? 'Saving...' : 'Save'}
+        type="Send Message"
+        //disabled={saving}
+        // value={saving ? 'Saving...' : 'Save'}
         className="btn btn-primary"
-        onClick={onSave}
+        //onClick={onSave}
       />
     </form>
   );
 };
 
-CourseForm.propTypes = {
-  course: React.PropTypes.object.isRequired,
-  allAuthors: React.PropTypes.array,
-  onSave: React.PropTypes.func.isRequired,
-  onChange: React.PropTypes.func.isRequired,
-  saving: React.PropTypes.bool,
-  errors: React.PropTypes.object
+ContactForm.propTypes = {
+  //onSave: React.PropTypes.func.isRequired,
+  // onChange: React.PropTypes.func.isRequired,
+  // saving: React.PropTypes.bool,
+  //errors: React.PropTypes.object
 };
 
-export default CourseForm;
+export default ContactForm;

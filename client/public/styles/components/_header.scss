@@ -9,13 +9,15 @@
   height: 100vh;
   overflow: hidden;
 
+  background-color: $header-background-color;
+  color: $white;
+
   @include element(container) {
-      margin: 0 30px;
+    margin: 0 30px;
   }
-  
+
   @include element(title) {
-    text-align: center;
     margin-top: 200px;
+    text-align: center;
   }
-  
 }

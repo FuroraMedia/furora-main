@@ -1,0 +1,2 @@
+export const FORM_SUBMIT_VALUE = 'FORM_SUBMIT_VALUE';
+export const FORM_RESET = 'FORM_RESET';

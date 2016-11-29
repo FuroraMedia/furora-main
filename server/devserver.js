@@ -1,26 +1,26 @@
 /* eslint func-names: ["error", "never"] */
 require('dotenv').config();
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const webpack = require('webpack');
-// var compression = require('compression');
-const config = require('../webpack.config.dev');
-// var config = require('./webpack.config.prod');
+require('babel-register')();
 
-const logger = require('morgan');
-const favicon = require('serve-favicon');
+import express from 'express';
+import bodyParser from 'body-parser';
+import favicon from 'serve-favicon';
+import path from 'path';
+import logger from 'morgan';
+import webpack from 'webpack';
 
-const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-const serverConfig = require('./config/config')[env];
+import config from './config/config';
+import webpackConfig from '../webpack.config.dev';
+
+const compiler = webpack(webpackConfig);
+const serverConfig = config.getConfigByEnv();
+
+
 const api = require('./api');
-
 const app = express();
 // app.use(compression());
 
-const compiler = webpack(config);
 app.use(favicon(path.join(__dirname, '/favicon.ico')));
-
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
-  publicPath: config.output.publicPath,
+  publicPath: webpackConfig.output.publicPath,
 }));
 
 app.use(logger('dev'));
