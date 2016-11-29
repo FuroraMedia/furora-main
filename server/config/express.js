@@ -9,16 +9,8 @@ const expressConfig = (app) => {
   app.use(favicon(path.join(__dirname, '../favicon.ico')));
   app.use(compression());
   app.use(bodyParser.urlencoded({extended: true}));
-
   app.use(bodyParser.json());
-
   app.use((req, res, next) => {
-    const schema = (req.headers['x-forwarded-proto'] || '').toLowerCase();
-    if (schema === 'https') {
-      next();
-    } else {
-      res.redirect('https://' + req.headers.host + req.url);
-    }
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
