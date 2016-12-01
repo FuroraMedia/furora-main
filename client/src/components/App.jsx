@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Header from './common/header/Header';
 import Footer from './common/footer/Footer';
 
-import ContactForm from './contact/ContactForm';
+import ContactSection from './contact/ContactSection';
 
 const propTypes = {
   children: PropTypes.object.isRequired,
@@ -18,7 +18,7 @@ class Layout extends React.Component {
             {this.props.children}
           </div>
         </main>
-        <ContactForm />
+        <ContactSection />
         <Footer />
       </div>
     );

@@ -21,7 +21,7 @@ const css = `.cls-1 {
 `;
 
 const Logo = () => (
-  <svg width="200" height="76" className="c-header__logo c-header__logo--dark" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 375.5 145.75">
+  <svg width="158" height="60" className="c-header__logo c-header__logo--dark" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 375.5 145.75">
     <defs>
       <style>{css}</style>
       <linearGradient id="linear-gradient" x1="133.96" y1="66.24" x2="149" y2="74.92" gradientUnits="userSpaceOnUse"><stop offset="0" stopColor="#3996d3"/><stop offset="1" stopColor="#7f4896"/></linearGradient><linearGradient id="linear-gradient-2" x1="272.71" y1="65.02" x2="300.96" y2="81.33" xlinkHref="#linear-gradient"/><linearGradient id="linear-gradient-3" x1="116.61" y1="122.26" x2="230.05" y2="122.26" xlinkHref="#linear-gradient"/><linearGradient id="linear-gradient-4" x1="2.91" y1="121.15" x2="110.62" y2="121.15" xlinkHref="#linear-gradient"/></defs>

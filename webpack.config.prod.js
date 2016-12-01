@@ -4,12 +4,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const purify = require('purifycss-webpack-plugin');
 
 const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production')
+  'process.env.NODE_ENV': JSON.stringify('production'),
 };
 
 module.exports = {
-  //debug: true,
-  // devtool: 'source-map',
   entry: ['./client/browserEntry.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
@@ -21,7 +19,7 @@ module.exports = {
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

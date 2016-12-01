@@ -16,7 +16,7 @@ const checkStatus = (response) => {
 const parseJSON = (response) => response.json();
 
 export const post = (path, data) => (
-  fetch(`http://localhost:3000/${path}`, {
+  fetch(`http://localhost:7000/${path}`, {
     method: 'POST',
     headers,
     body: JSON.stringify(data),

@@ -1,7 +1,17 @@
 import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-const formReducer = (state = [], action) => {
-    
+
+export const contactForm = (state = [], action) => {
+  switch (action.type) {
+    case types.FORM_SUBMIT_VALUE:
+      return [...state,
+        Object.assign({}, action.course),
+      ];
+    case types.FORM_RESET:
+      return initialState.formValues;
+
+    default:
+      return state;
+  }
 };
-
-export default formReducer;

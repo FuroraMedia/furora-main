@@ -11,12 +11,11 @@ import webpack from 'webpack';
 
 import config from './config/config';
 import webpackConfig from '../webpack.config.dev';
+import api from './api';
 
 const compiler = webpack(webpackConfig);
 const serverConfig = config.getConfigByEnv();
 
-
-const api = require('./api');
 const app = express();
 // app.use(compression());
 
