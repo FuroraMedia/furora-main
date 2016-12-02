@@ -7,8 +7,6 @@ import xoauth2 from 'xoauth2';
 
 import config from '../../config/config';
 const serverConfig = config.getConfigByEnv();
-console.log(process.env.NODE_ENV, serverConfig);
-
 
 const generator = xoauth2.createXOAuth2Generator({
   user: serverConfig.gmail.client_user,

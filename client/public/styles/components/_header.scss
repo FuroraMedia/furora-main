@@ -19,5 +19,7 @@
   @include element(title) {
     margin-top: 200px;
     text-align: center;
+    
+    @include font-size(60px);
   }
 }

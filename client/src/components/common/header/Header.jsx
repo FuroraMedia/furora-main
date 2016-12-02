@@ -15,7 +15,7 @@ const Header = () => (
         <SocialMedia />
       </nav>
 
-      <h1 className="c-header__title">Front End Developement Consultancy
+      <h1 className="c-header__title">Front End Development Consultancy
         <br />
         Based in Essex / London</h1>
     </div>
