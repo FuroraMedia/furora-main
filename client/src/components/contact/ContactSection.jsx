@@ -43,11 +43,7 @@ class ContactSection extends React.Component {
       return;
     }
     
-    this.props.actions.saveMessage(this.state.message)
-    .then()
-    .catch(error => {
-      this.setState({ saving: false });
-    });
+    this.props.actions.saveMessage(this.state.message);
     this.setState({ saving: true });
   }
 

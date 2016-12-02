@@ -7,6 +7,8 @@ import xoauth2 from 'xoauth2';
 
 import config from '../../config/config';
 const serverConfig = config.getConfigByEnv();
+console.log(process.env.NODE_ENV, serverConfig);
+
 
 const generator = xoauth2.createXOAuth2Generator({
   user: serverConfig.gmail.client_user,
@@ -28,6 +30,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const gmail = (req, res) => {
+  console.log(req.body.name, req.body.email, serverConfig.mail.contact_address, req.body.message)
   transporter.sendMail({
     from: req.body.name + req.body.email,
     to: serverConfig.mail.contact_address,
