@@ -13,7 +13,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={store} key="provider">
         <Router history={browserHistory} routes={routes} />
       </Provider>
     );
