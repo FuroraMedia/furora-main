@@ -1,43 +1,53 @@
 import React from 'react';
 import TextInput from '../common/form/TextInput';
-//import SelectInput from '../common/form/SelectInput';
+import TextArea from '../common/form/TextArea';
 
 const ContactForm = ({ message, onSubmit, onChange, saving, errors }) => {
   return (
-    <form>
-      <h3>Contact form</h3>
-      <TextInput
-        name="name"
-        label="Your Name"
-        value={message.name}
-        onChange={onChange}
-        error={errors.name}
-      />
-      <TextInput
-        name="email"
-        label="Your Email"
-        value={message.email}
-        onChange={onChange}
-        error={errors.email}
-      />
-
-      <TextInput
-        name="message"
-        label="Your Message"
-        value={message.message}
-        onChange={onChange}
-        error={errors.message}
-      />
-
-      <input
-        type="submit"
-        disabled={saving}
-        // value={saving ? 'Saving...' : 'Save'}
-        className="btn btn-primary"
-        value="submit"
-        onClick={onSubmit}
-      />
-    </form>
+      <form className="c-form">
+        <h3 className="u-margin-bottom">Contact form</h3>
+        <div className="o-layout">
+          <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
+            <TextInput
+              name="name"
+              label="Your Name"
+              value={message.name}
+              onChange={onChange}
+              error={errors.name}
+            />
+          </div>
+          <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
+            <TextInput
+              name="email"
+              label="Your Email"
+              value={message.email}
+              onChange={onChange}
+              error={errors.email}
+            />
+          </div>
+          
+          <div className="o-layout__item u-1/1">
+            <TextArea
+              name="message"
+              label="Your Message"
+              value={message.message}
+              onChange={onChange}
+              error={errors.message}
+            />
+          </div>
+          
+          <div className="o-layout__item u-1/1">
+            <input
+              type="submit"
+              disabled={saving}
+              // value={saving ? 'Saving...' : 'Save'}
+              className="c-btn c-btn--primary"
+              value="submit"
+              onClick={onSubmit}
+            />
+          </div>
+        </div>
+      </form>
   );
 };
 
@@ -46,7 +56,7 @@ ContactForm.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
   saving: React.PropTypes.bool,
-  errors: React.PropTypes.object
+  errors: React.PropTypes.object,
 };
 
 export default ContactForm;

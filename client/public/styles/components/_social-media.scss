@@ -1,9 +1,6 @@
 @include block(c-social-media) {
   float: right;
-  list-style-type: none;
-  
   @include modifier(light) {
-    
     @include element(icon) {
       transition: fill .4s ease;
       fill: $white;
@@ -16,6 +13,9 @@
   
   @include element(item) {
     float: left;
-    margin-right: 15px;
+  }
+  
+  @include mq($from: mobile, $until: tablet) {
+    display: none;
   }
 }

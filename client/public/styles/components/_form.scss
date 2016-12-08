@@ -1,0 +1,38 @@
+@include block(c-form) {
+  padding: 48px;
+   @include element(group){
+    @include element(input) {
+      width: 100%;
+      outline: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0;
+      border-bottom: 1px solid $grey;
+    }
+    @include element(textarea) {
+      width: 100%;
+      outline: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0;
+      background: repeating-linear-gradient(to bottom, transparent, transparent 38px, rgba(0,0,0,0.15) 39px)
+    }
+    
+  
+    @include modifier(error) {
+       @include element(input){
+        @include error($error-color);
+      }
+      @include element(message) {
+         @include error($error-color);
+      }
+      @include element(textarea) {
+        background: repeating-linear-gradient(to bottom, transparent, transparent 38px, $error-color 39px)
+      }
+    }
+  }
+  
+  @include mq($from: mobile, $until: tablet) {
+    padding: 24px;
+  }
+}

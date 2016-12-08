@@ -11,14 +11,14 @@ const propTypes = {
 class Layout extends React.Component {
   render() {
     return (
-      <div className="o-wrapper">
+      <div className="o-container">
         <Header />
         <main>
-          <div className="container">
+          <div className="o-wrapper">
             {this.props.children}
           </div>
         </main>
-        {/* <ContactSection /> */}
+        <ContactSection />
         <Footer />
       </div>
     );

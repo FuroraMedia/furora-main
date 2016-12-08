@@ -1,21 +1,9 @@
-/* eslint-disable no-console */
-require('babel-register')({
-  'plugins': [
-    [
-      'babel-plugin-transform-require-ignore',
-      {
-        extensions: ['.scss'],
-      },
-    ],
-  ],
-});
-
 import express from 'express';
-const app = express();
 import config from './config/config';
 import expressConfig from './config/express';
 import reactRoutes from './config/reactRoutes';
 
+const app = express();
 const serverConfig = config.getConfigByEnv();
 
 expressConfig(app);

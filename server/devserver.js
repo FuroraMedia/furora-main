@@ -1,6 +1,6 @@
 /* eslint func-names: ["error", "never"] */
 require('dotenv').config();
-require('babel-register')();
+// require('babel-register')();
 
 import express from 'express';
 import bodyParser from 'body-parser';

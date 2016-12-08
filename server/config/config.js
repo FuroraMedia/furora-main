@@ -5,11 +5,13 @@ const Config = {
   development: {
     port: process.env.PORT || 7000,
     mail: {
+      isActive: process.env.MAIL_ACTIVE_STATUS,
       api_key: process.env.MG_EMAIL_API_KEY,
       domain: process.env.MG_EMAIL_DOMAIN,
       contact_address: process.env.CONTACT_ADDRESS,
     },
     gmail: {
+      isActive: process.env.GMAIL_ACTIVE_STATUS,
       client_user: process.env.GMAIL_CLIENT_USER,
       client_id: process.env.GMAIL_CLIENT_ID,
       secret: process.env.GMAIL_CLIENT_SECRET,
@@ -20,11 +22,13 @@ const Config = {
   production: {
     port: process.env.PORT || 80,
     mail: {
+      isActive: process.env.MAIL_ACTIVE_STATUS,
       api_key: process.env.MG_EMAIL_API_KEY,
       domain: process.env.MG_EMAIL_DOMAIN,
       contact_address: process.env.CONTACT_ADDRESS,
     },
     gmail: {
+      isActive: process.env.GMAIL_ACTIVE_STATUS,
       client_user: process.env.GMAIL_CLIENT_USER,
       client_id: process.env.GMAIL_CLIENT_ID,
       secret: process.env.GMAIL_CLIENT_SECRET,

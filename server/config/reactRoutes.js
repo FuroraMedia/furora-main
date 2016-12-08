@@ -8,12 +8,9 @@ import { renderToString } from 'react-dom/server';
 import _ from 'lodash';
 import fs from 'fs';
 
-// import Store from '../../client/src/store/configureStore';
 import store from '../../client/store';
 import myRoutes from '../../client/routes';
 
-
-//const store = Store.store;
 const baseTemplate = fs.readFileSync(path.join(__dirname, '../index.html'));
 const template = _.template(baseTemplate);
 
@@ -25,12 +22,11 @@ const reactRoutes = (app) => {
       } else if (redirect) {
         res.redirect(302, redirect.pathname + redirect.search);
       } else if (props) {
-        //const body = renderToString(<RouterContext {...props} />);
         const body = renderToString(
         React.createElement(Provider, { store },
           React.createElement(RouterContext, props)
         )
-      )
+      );
         res.status(200).send(template({ body }));
       } else {
         res.status(404).send('Not found');

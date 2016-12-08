@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
 
-// const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-// const config = require('../../config/config')[env];
 import nodemailer from 'nodemailer';
 import xoauth2 from 'xoauth2';
 
@@ -28,21 +26,24 @@ const transporter = nodemailer.createTransport({
 });
 
 const gmail = (req, res) => {
-  console.log(req.body.name, req.body.email, serverConfig.mail.contact_address, req.body.message)
-  transporter.sendMail({
-    from: req.body.name + req.body.email,
-    to: serverConfig.mail.contact_address,
-    subject: 'GMAIL Website contact',
-    text: req.body.message,
-  }, (err, info) => {
-    if (err) {
-      console.log(err);
-      res.send('error');
-    } else {
-      console.log(`Message sent:, ${info}`);
-      res.end('sent');
-    }
-  });
+  if (serverConfig.gmail.isActive) {
+    transporter.sendMail({
+      from: req.body.name + req.body.email,
+      to: serverConfig.mail.contact_address,
+      subject: 'GMAIL Website contact',
+      text: req.body.message,
+    }, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.send('error');
+      } else {
+        console.log(`Message sent:, ${info}`);
+        res.end('sent');
+      }
+    });
+  } else {
+    res.end('gmail is currently disabled');
+  }
 };
 
 export default gmail;

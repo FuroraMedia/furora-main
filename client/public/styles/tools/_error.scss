@@ -1,0 +1,5 @@
+
+@mixin error($color) {
+    color: $color;
+    border-color: $color;
+}

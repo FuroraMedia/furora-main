@@ -1,27 +1,52 @@
-
-
+// Setting
+@import 'node_modules/inuitcss/settings/settings.core';
 @import 'settings/global';
 @import 'settings/colors';
 @import 'settings/path';
 
+// Tools
+@import 'node_modules/inuitcss/tools/tools.font-size';
+@import 'node_modules/inuitcss/tools/tools.clearfix';
+@import 'node_modules/sass-mq/mq';
 @import 'tools/bem';
-// @import 'tools/rem';
 @import 'tools/font-face';
-@import 'tools/font-size';
-@import 'tools/clearfix';
 @import 'tools/hidden';
 @import 'tools/svg-icon';
 @import 'tools/prefix';
+@import 'tools/error';
 
+// Generic
+@import 'node_modules/inuitcss/generic/generic.box-sizing';
 @import 'generic/normalize';
-@import 'generic/reset';
-@import 'generic/box-sizing';
+@import 'node_modules/inuitcss/generic/generic.reset';
 @import 'generic/fonts';
 
-@import 'elements/page';
-@import 'elements/headings';
+// Elements
+@import 'node_modules/inuitcss/elements/elements.page';
+@import 'node_modules/inuitcss/elements/elements.headings';
 
+// Objects
+@import 'node_modules/inuitcss/objects/objects.layout';
+@import 'node_modules/inuitcss/objects/objects.media';
+@import 'node_modules/inuitcss/objects/objects.flag';
+@import 'node_modules/inuitcss/objects/objects.list-bare';
+@import 'node_modules/inuitcss/objects/objects.list-inline';
+@import 'node_modules/inuitcss/objects/objects.box';
+@import 'node_modules/inuitcss/objects/objects.block';
+@import 'node_modules/inuitcss/objects/objects.tables';
+@import 'node_modules/inuitcss/objects/objects.wrapper';
+
+// Components
 @import 'components/header';
 @import 'components/footer';
 @import 'components/navigation';
 @import 'components/social-media';
+@import 'components/form';
+@import 'components/buttons';
+
+// Utilities
+@import 'node_modules/inuitcss/utilities/utilities.widths';
+@import 'node_modules/inuitcss/utilities/utilities.headings';
+@import 'node_modules/inuitcss/utilities/utilities.print';
+@import 'node_modules/inuitcss/utilities/utilities.hide';
+@import 'node_modules/inuitcss/utilities/utilities.spacing';

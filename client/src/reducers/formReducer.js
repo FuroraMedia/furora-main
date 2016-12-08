@@ -1,7 +1,6 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-
 export const contactForm = (state = [], action) => {
   switch (action.type) {
     case types.FORM_SUBMIT_VALUE:

@@ -5,8 +5,5 @@
   color: $white;
 
   @include element(copy) {
-    display: block;
-    padding: 30px 0;
-    text-align: center;
   }
 }

@@ -9,7 +9,7 @@ import forceSSL from '../util';
 const expressConfig = (app) => {
   app.use(favicon(path.join(__dirname, '../favicon.ico')));
   app.use(compression());
-  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(forceSSL);
   app.use((req, res, next) => {
@@ -23,4 +23,4 @@ const expressConfig = (app) => {
   app.use('/api/v1', api);
 };
 
-export default expressConfig
+export default expressConfig;
