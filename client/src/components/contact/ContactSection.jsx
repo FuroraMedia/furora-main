@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ContactForm from './ContactForm';
+import trim from 'trim';
 
 import * as formActions from '../../actions/formActions';
 
@@ -20,7 +21,7 @@ class ContactSection extends React.Component {
   updateMessageState(event) {
     const field = event.target.name;
     let message = this.state.message;
-    message[field] = event.target.value;
+    message[field] = trim(event.target.value);
     this.courseFormIsValid();
     return this.setState({ message: message });
   }
