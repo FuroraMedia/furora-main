@@ -69,7 +69,7 @@ module.exports = {
         exclude: ['/node_modules/', '/\.spec\.js/'],
       }, {
         test: /\.(html|jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: 'url-loader?limit=20000&name=[name]-[hash].[ext]',
+        loader: 'url-loader?limit=20000&name=static/[name]-[hash].[ext]',
       },
     ],
   },
