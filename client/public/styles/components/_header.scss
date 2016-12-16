@@ -20,4 +20,10 @@
   @include element(title) {    
     @include inuit-font-size(60px);
   }
+  
+  @include mq($from: mobile, $until: tablet) {
+    @include element(title) {    
+      @include inuit-font-size(45px);
+    }
+  }
 }

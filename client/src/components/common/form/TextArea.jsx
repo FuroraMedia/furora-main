@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 
 const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
-  
   let wrapperClass = 'c-form__group u-margin-bottom';
   if (error && error.length > 0) {
     wrapperClass += ' ' + 'c-form__group--error';

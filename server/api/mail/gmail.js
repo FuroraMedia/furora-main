@@ -6,6 +6,7 @@ import xoauth2 from 'xoauth2';
 import config from '../../config/config';
 const serverConfig = config.getConfigByEnv();
 
+
 const generator = xoauth2.createXOAuth2Generator({
   user: serverConfig.gmail.client_user,
   clientId: serverConfig.gmail.client_id,
@@ -25,8 +26,12 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const gmail = (req, res) => {
+const gmail = (req, res, next) => {
+  console.log(serverConfig.gmail.client_user)
   if (serverConfig.gmail.isActive) {
+    if (req.body.name === '' || req.body.email === '' || req.body.message === '') {
+      return res.status(401).json({ message: 'All fields are required' });
+    }
     transporter.sendMail({
       from: req.body.name + req.body.email,
       to: serverConfig.mail.contact_address,

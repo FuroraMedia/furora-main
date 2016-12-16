@@ -10,12 +10,14 @@
       border-bottom: 1px solid $grey;
     }
     @include element(textarea) {
+      line-height: 2.2;
+      resize: none;
       width: 100%;
       outline: 0;
       border: none;
       border-radius: 0;
       box-shadow: 0;
-      background: repeating-linear-gradient(to bottom, transparent, transparent 38px, rgba(0,0,0,0.15) 39px)
+      background-image: repeating-linear-gradient(to bottom, transparent, transparent 38px, rgba(0,0,0,0.15) 39px);
     }
     
   
@@ -27,7 +29,7 @@
          @include error($error-color);
       }
       @include element(textarea) {
-        background: repeating-linear-gradient(to bottom, transparent, transparent 38px, $error-color 39px)
+        background-image: repeating-linear-gradient(to bottom, transparent, transparent 38px, $error-color 39px)
       }
     }
   }
@@ -35,4 +37,12 @@
   @include mq($from: mobile, $until: tablet) {
     padding: 24px;
   }
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  border-color: $royal-purple;
+  -webkit-text-fill-color: $royal-purple;
+  -webkit-box-shadow: 0 0 0px 1000px $white inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

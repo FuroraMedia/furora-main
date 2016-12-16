@@ -1,7 +1,7 @@
 
 
 @include block(c-footer) {
-  background: $footer-background-color;
+  background-color: $footer-background-color;
   color: $white;
 
   @include element(copy) {

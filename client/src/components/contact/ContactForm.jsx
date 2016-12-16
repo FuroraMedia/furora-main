@@ -1,11 +1,11 @@
 import React from 'react';
+//import Recaptcha from 'react-gcaptcha';
 import TextInput from '../common/form/TextInput';
 import TextArea from '../common/form/TextArea';
 
 const ContactForm = ({ message, onSubmit, onChange, saving, errors }) => {
   return (
       <form className="c-form">
-        <h3 className="u-margin-bottom">Contact form</h3>
         <div className="o-layout">
           <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
             <TextInput
@@ -25,7 +25,6 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors }) => {
               error={errors.email}
             />
           </div>
-          
           <div className="o-layout__item u-1/1">
             <TextArea
               name="message"

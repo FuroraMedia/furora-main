@@ -23,6 +23,7 @@
   text-align: center; /* [4] */
   margin: 0; /* [4] */
   cursor: pointer; /* [5] */
+  outline: none;
   padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
   transition: $global-transition;
   border-radius: $global-radius;
@@ -36,7 +37,7 @@
    ========================================================================== */
 
 .c-btn--primary {
-  background-color: $black;
+  background-color: $raisin-black;
   border: none;
 
   &,
@@ -44,18 +45,18 @@
   &:active,
   &:focus {
     text-decoration: none; /* [4] */
-    color: #fff;
+    color: $white;
   }
 
   &:hover,
   &:focus {
-    background-color: $blue;
+    background-color: $cta-hover-color;
   }
 
 }
 
 .c-btn--secondary {
-  background-color: $purple;
+  background-color: $royal-purple;
 
   &,
   &:hover,
@@ -73,7 +74,7 @@
 }
 
 .c-btn--tertiary {
-  background-color: #fff;
+  background-color: $white;
   color: #4a8ec2;
 
   &,

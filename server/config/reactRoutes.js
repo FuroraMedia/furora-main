@@ -3,18 +3,13 @@ import React from 'react';
 
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
-import { renderToString } from 'react-dom/server';
-
-import _ from 'lodash';
-import fs from 'fs';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 import store from '../../client/store';
 import myRoutes from '../../client/routes';
 
-const baseTemplate = fs.readFileSync(path.join(__dirname, '../index.html'));
-const template = _.template(baseTemplate);
-
 const reactRoutes = (app) => {
+
   app.use((req, res) => {
     match({ routes: myRoutes, location: req.url }, (err, redirect, props) => {
       if (err) {
@@ -22,12 +17,12 @@ const reactRoutes = (app) => {
       } else if (redirect) {
         res.redirect(302, redirect.pathname + redirect.search);
       } else if (props) {
-        const body = renderToString(
+        const body = renderToStaticMarkup(
         React.createElement(Provider, { store },
           React.createElement(RouterContext, props)
-        )
+        ),
       );
-        res.status(200).send(template({ body }));
+        res.status(200).render('index', { body });
       } else {
         res.status(404).send('Not found');
       }

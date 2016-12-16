@@ -4,22 +4,21 @@ import favicon from 'serve-favicon';
 import path from 'path';
 import compression from 'compression';
 import api from '../api';
-import forceSSL from '../util';
+import forceSSL from '../util/ssl';
+
+import config from './config';
+
+const serverConfig = config.getConfigByEnv();
 
 const expressConfig = (app) => {
+  app.set('views', path.join(__dirname, '../views'));
+  app.set('view engine', 'ejs');
   app.use(favicon(path.join(__dirname, '../favicon.ico')));
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(forceSSL);
-  app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-  });
-
-  app.use('/static', express.static(path.join(__dirname, '../../client/dist')));
+  app.use('/static', express.static(path.join(__dirname, serverConfig.path)));
   app.use('/api/v1', api);
 };
 

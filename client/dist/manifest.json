@@ -2,7 +2,7 @@
   "short_name": "Furora Media",
   "name": "Portfolio Site for Furora.Media",
   "background_color": "#212121",
-  "theme_color": "#7e4a97", 
-  "display": "standalone",  
+  "theme_color": "#7e4a97",
+  "display": "standalone",
   "orientation": "portrait"
 }

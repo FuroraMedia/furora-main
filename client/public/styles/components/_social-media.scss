@@ -6,7 +6,10 @@
       fill: $white;
       
       &:hover {
-        fill: $blue;
+        fill: $cta-hover-color;
+      }
+      @include modifier(tall) {
+        vertical-align: middle;
       }
     }
   }
@@ -14,7 +17,6 @@
   @include element(item) {
     float: left;
   }
-  
   @include mq($from: mobile, $until: tablet) {
     display: none;
   }

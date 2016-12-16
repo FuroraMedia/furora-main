@@ -3,6 +3,7 @@ const Config = {
     port: process.env.PORT || 3001,
   },
   development: {
+    path: '../../client/public',
     port: process.env.PORT || 7000,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,
@@ -20,6 +21,7 @@ const Config = {
     },
   },
   production: {
+    path: '../../client/dist',
     port: process.env.PORT || 80,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,

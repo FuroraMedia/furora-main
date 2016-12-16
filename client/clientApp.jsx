@@ -3,14 +3,12 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import store from './store';
-
 import './public/styles/shared.scss';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
       <Provider store={store} key="provider">

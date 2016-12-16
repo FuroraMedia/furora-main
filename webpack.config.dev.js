@@ -48,7 +48,7 @@ module.exports = {
         query: {
           presets: ['es2015', 'react'],
         },
-        exclude: ['/node_modules/', '/.spec.js/'],
+        exclude: ['/node_modules/', '/server/', '/.spec.js/'],
       },
       {
         test: /\.(jpe|jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,

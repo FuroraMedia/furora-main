@@ -1,27 +1,31 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import ContactForm from './ContactForm';
-import trim from 'trim';
+import validator from 'validator';
 
+import ContactForm from './ContactForm';
+import SuccessMsg from '../common/form/SuccessMessage';
 import * as formActions from '../../actions/formActions';
 
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
+    
     this.state = {
       message: Object.assign({}, props.message),
       errors: {},
       saving: false,
+      showForm: true,
     };
-  
+    
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
   updateMessageState(event) {
     const field = event.target.name;
     let message = this.state.message;
-    message[field] = trim(event.target.value);
+    message[field] = validator.trim(event.target.value);
     this.courseFormIsValid();
     return this.setState({ message: message });
   }
@@ -39,6 +43,11 @@ class ContactSection extends React.Component {
       formIsValid = false;
     }
     
+    if (this.state.message.email && !validator.isEmail(this.state.message.email)) {
+      errors.email = 'Not a Valid email';
+      formIsValid = false;
+    }
+    
     if (!this.state.message.message) {
       errors.message = 'A message is required';
       formIsValid = false;
@@ -50,18 +59,26 @@ class ContactSection extends React.Component {
 
   submitForm(event) {
     event.preventDefault();
-
+    console.log(this.courseFormIsValid());
     if (!this.courseFormIsValid()) {
       return;
     }
-
     this.setState({ saving: true });
     this.props.actions.saveMessage(this.state.message)
-    .then(() => this.props.actions.reset())
-    .catch(error => {
-      //console.log('error', error);
+    .then(() => {
+      // this.setState({ showForm: false });
       this.setState({ saving: false });
+      this.props.actions.reset()
+    })
+    .catch(error => {
+      this.setState({ saving: false });
+      this.props.actions.reset();
     });
+  }
+  
+  resetForm(event) {
+    event.preventDefault();
+    this.props.actions.reset();
   }
 
   render() {
@@ -69,13 +86,19 @@ class ContactSection extends React.Component {
       <section className="o-wrapper c-contact">
         <div className="o-layout">
           <div className="o-layout__item u-1/1">
-            <ContactForm
+            
+            <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
+            
+            { this.state.showForm && <ContactForm
               onChange={this.updateMessageState}
               onSubmit={this.submitForm}
               message={this.state.message}
               errors={this.state.errors}
               saving={this.state.saving}
-            />
+            />}
+            {/* {!this.state.showForm && <SuccessMsg />} */}
+            
+            {/* <button onClick={this.resetForm}>reset</button> */}
           </div>
         </div>
       </section>
@@ -83,16 +106,15 @@ class ContactSection extends React.Component {
   }
 }
 
-
 ContactSection.propTypes = {
   message: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state) {
-  let message = { 'name': '', email: '', message: '' };
+  let message = { name: '', email: '', message: '' };
   return {
-    message,
+    message
   };
 }
 
