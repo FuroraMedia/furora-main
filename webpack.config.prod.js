@@ -11,7 +11,7 @@ module.exports = {
   entry: ['./client/browserEntry.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
-    publicPath: '/',
+    publicPath: '/static/',
     filename: 'bundle.js',
   },
   plugins: [

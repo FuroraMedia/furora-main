@@ -87,8 +87,7 @@ class ContactSection extends React.Component {
         <div className="o-layout">
           <div className="o-layout__item u-1/1">
             
-            <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
-            
+
             { this.state.showForm && <ContactForm
               onChange={this.updateMessageState}
               onSubmit={this.submitForm}

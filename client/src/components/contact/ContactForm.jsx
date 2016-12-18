@@ -7,7 +7,10 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors }) => {
   return (
       <form className="c-form">
         <div className="o-layout">
+          <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
+          
           <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
+
             <TextInput
               name="name"
               label="Your Name"
