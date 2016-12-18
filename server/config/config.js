@@ -22,7 +22,7 @@ const Config = {
   },
   production: {
     path: '../../client/dist',
-    port: process.env.PORT || 7000,
+    port: process.env.PORT || 80,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,
       api_key: process.env.MG_EMAIL_API_KEY,
