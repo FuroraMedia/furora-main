@@ -10,6 +10,10 @@ import config from './config';
 
 const serverConfig = config.getConfigByEnv();
 
+// const static = () => {
+//   return 
+// }
+
 const expressConfig = (app) => {
   app.set('views', path.join(__dirname, '../views'));
   app.set('view engine', 'ejs');
@@ -17,7 +21,7 @@ const expressConfig = (app) => {
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
-  // app.use(forceSSL);
+  app.use(forceSSL);
   app.use('/static', express.static(path.join(__dirname, serverConfig.path)));
   app.use('/api/v1', api);
 };

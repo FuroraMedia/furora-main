@@ -52,6 +52,16 @@
   &:focus {
     background-color: $cta-hover-color;
   }
+  
+  &:disabled {
+    pointer-events: none;
+    opacity: 80%;
+    background-color: grey;
+    
+    &:hover {
+      background-color: $cta-hover-color;
+    }
+  }
 
 }
 

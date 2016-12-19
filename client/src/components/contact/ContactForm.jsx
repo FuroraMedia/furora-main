@@ -1,16 +1,21 @@
 import React from 'react';
-//import Recaptcha from 'react-gcaptcha';
+import Recaptcha from 'react-gcaptcha';
 import TextInput from '../common/form/TextInput';
 import TextArea from '../common/form/TextArea';
 
-const ContactForm = ({ message, onSubmit, onChange, saving, errors }) => {
+const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVerified, recaptchaVerifiedCallback }) => {
+  console.log('its', recaptchaVerified);
+  // 
+  // const diasabled = recaptchaVerified ? 
   return (
-      <form className="c-form">
+      <form className="c-form">    
         <div className="o-layout">
-          <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
+          
+          <div className="o-layout__item u-1/1">
+            <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
+          </div>
           
           <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
-
             <TextInput
               name="name"
               label="Your Name"
@@ -39,9 +44,19 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors }) => {
           </div>
           
           <div className="o-layout__item u-1/1">
+            <div className="u-margin-bottom">
+              <Recaptcha
+                sitekey='6LdOtA4UAAAAAK8KZZz3G86eBImM2IrFGnJ-K_SY'
+                // onloadCallback={loaded}
+                verifyCallback={recaptchaVerifiedCallback}
+              />
+            </div>
+          </div>
+          
+          <div className="o-layout__item u-1/1">
             <input
               type="submit"
-              disabled={saving}
+              disabled={!recaptchaVerified}
               // value={saving ? 'Saving...' : 'Save'}
               className="c-btn c-btn--primary"
               value="submit"
@@ -59,6 +74,8 @@ ContactForm.propTypes = {
   onChange: React.PropTypes.func.isRequired,
   saving: React.PropTypes.bool,
   errors: React.PropTypes.object,
+  recaptchaVerified: React.PropTypes.bool,
+  recaptchaVerifiedCallback: React.PropTypes.func,
 };
 
 export default ContactForm;

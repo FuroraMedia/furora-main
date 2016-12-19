@@ -16,43 +16,43 @@ class ContactSection extends React.Component {
       errors: {},
       saving: false,
       showForm: true,
+      recaptchaVerified: false,
     };
     
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
-    this.resetForm = this.resetForm.bind(this);
+    this.verifyCallback = this.verifyCallback.bind(this);
+    // this.resetForm = this.resetForm.bind(this);
   }
   updateMessageState(event) {
     const field = event.target.name;
     let message = this.state.message;
     message[field] = validator.trim(event.target.value);
-    this.courseFormIsValid();
     return this.setState({ message: message });
   }
+  
   courseFormIsValid() {
     let formIsValid = true;
     let errors = {};
-
     if (!this.state.message.name) {
       errors.name = 'A name must be required';
       formIsValid = false;
     }
-    
     if (!this.state.message.email) {
       errors.email = 'A email address is required';
       formIsValid = false;
     }
-    
     if (this.state.message.email && !validator.isEmail(this.state.message.email)) {
       errors.email = 'Not a Valid email';
       formIsValid = false;
     }
-    
     if (!this.state.message.message) {
       errors.message = 'A message is required';
       formIsValid = false;
     }
-    
+    if (this.state.recaptchaVerified === false) {
+      formIsValid = false;
+    }
     this.setState({ errors: errors });
     return formIsValid;
   }
@@ -80,6 +80,11 @@ class ContactSection extends React.Component {
     event.preventDefault();
     this.props.actions.reset();
   }
+  
+  verifyCallback() {
+    console.log('verified')
+    return this.setState({ recaptchaVerified: true });
+  }
 
   render() {
     return (
@@ -94,6 +99,8 @@ class ContactSection extends React.Component {
               message={this.state.message}
               errors={this.state.errors}
               saving={this.state.saving}
+              recaptchaVerified={this.state.recaptchaVerified}
+              recaptchaVerifiedCallback={this.verifyCallback}
             />}
             {/* {!this.state.showForm && <SuccessMsg />} */}
             
