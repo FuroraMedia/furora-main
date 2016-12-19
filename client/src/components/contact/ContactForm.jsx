@@ -4,7 +4,7 @@ import TextInput from '../common/form/TextInput';
 import TextArea from '../common/form/TextArea';
 
 const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVerified, recaptchaVerifiedCallback }) => {
-  console.log('its', recaptchaVerified);
+  //console.log('its', recaptchaVerified);
   // 
   // const diasabled = recaptchaVerified ? 
   return (

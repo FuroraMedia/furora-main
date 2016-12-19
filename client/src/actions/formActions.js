@@ -7,7 +7,7 @@ export function createMessage(message) {
 }
 
 export function reset() {
-  console.log('action reset')
+  //console.log('action reset')
   return dispatch => dispatch({ type: types.FORM_RESET });
 }
 

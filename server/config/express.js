@@ -23,7 +23,7 @@ const expressConfig = (app) => {
   app.use(bodyParser.json());
   app.use(forceSSL);
   app.use('/static', express.static(path.join(__dirname, serverConfig.path), {
-    maxage: serverConfig.cacheTime,
+    maxAge: serverConfig.cacheTime,
   }));
   app.use('/api/v1', api);
 };
