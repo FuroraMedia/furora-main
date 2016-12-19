@@ -59,7 +59,7 @@ class ContactSection extends React.Component {
 
   submitForm(event) {
     event.preventDefault();
-    console.log(this.courseFormIsValid());
+
     if (!this.courseFormIsValid()) {
       return;
     }
@@ -80,9 +80,7 @@ class ContactSection extends React.Component {
     event.preventDefault();
     this.props.actions.reset();
   }
-  
   verifyCallback() {
-    console.log('verified')
     return this.setState({ recaptchaVerified: true });
   }
 
@@ -90,6 +88,7 @@ class ContactSection extends React.Component {
     return (
       <section className="o-wrapper c-contact">
         <div className="o-layout">
+          
           <div className="o-layout__item u-1/1">
             
 
