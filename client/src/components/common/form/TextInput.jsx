@@ -9,11 +9,11 @@ const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
   return (
     <fieldset className={wrapperClass}>
       <label className="c-form__label" htmlFor={name}>{label}</label>
-      <div className="u-margin-top-small">
+      
         <input
           type="text"
           name={name}
-          className="c-form__input u-padding-bottom-small"
+          className="c-form__input u-margin-top-small u-padding-bottom-small"
           placeholder={placeholder}
           value={value}
           onChange={onChange}
@@ -21,7 +21,7 @@ const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
         {error && <div className="c-form__message c-form__message--alert u-margin-top-small">
           {error}
         </div>}
-      </div>
+      
     </fieldset>
   );
 };
