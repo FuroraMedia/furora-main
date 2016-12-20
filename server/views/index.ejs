@@ -7,13 +7,13 @@
     <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
     <%_ if (process.env.NODE_ENV === 'production') { _%>
       <link href="/static/manifest.json" rel="manifest" />
-      <link href="/static/styles.css" rel="stylesheet" />
+      <link href="/static/styles.css?v=<% process.env.deployVersion %>" rel="stylesheet" />
     <%_ } _%>
   </head>
   <body>
     <div id="app"><% body %></div>
     
-    <script src="/static/bundle.js"></script>
+    <script src="/static/bundle.js?=v<% process.env.deployVersion %>"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
     <script>
       (function(i, s, o, g, r, a, m) {

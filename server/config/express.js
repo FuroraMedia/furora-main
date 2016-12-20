@@ -10,9 +10,6 @@ import config from './config';
 
 const serverConfig = config.getConfigByEnv();
 
-// const static = () => {
-//   return 
-// }
 
 const expressConfig = (app) => {
   app.set('views', path.join(__dirname, '../views'));
