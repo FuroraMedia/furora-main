@@ -5,7 +5,7 @@ const Config = {
   development: {
     path: '../../client/public',
     port: process.env.PORT || 7000,
-    cacheTime: process.env.CACHETIME,
+    cacheTime: process.env.CACHE_TIME,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,
       api_key: process.env.MG_EMAIL_API_KEY,
@@ -24,7 +24,7 @@ const Config = {
   production: {
     path: '../../client/dist',
     port: process.env.PORT || 80,
-    cacheTime: process.env.CACHETIME,
+    cacheTime: process.env.CACHE_TIME,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,
       api_key: process.env.MG_EMAIL_API_KEY,
