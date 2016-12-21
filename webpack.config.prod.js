@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Purify = require('purifycss-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
@@ -32,6 +33,15 @@ module.exports = {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'my-project-name',
+      filename: 'my-service-worker.js',
+      maximumFileSizeToCacheInBytes: 4194304,
+      runtimeCaching: [{
+        handler: 'cacheFirst',
+        urlPattern: /[.]mp3$/,
+      }],
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
