@@ -28,7 +28,7 @@ class ContactSection extends React.Component {
   updateMessageState(event) {
     const field = event.target.name;
     let message = this.state.message;
-    message[field] = validator.trim(event.target.value);
+    message[field] = event.target.value;
     return this.setState({ message: message });
   }
   
@@ -69,11 +69,11 @@ class ContactSection extends React.Component {
     .then(() => {
       // this.setState({ showForm: false });
       this.setState({ saving: false });
-      this.props.actions.reset()
+      //this.props.actions.reset()
     })
     .catch(error => {
       this.setState({ saving: false });
-      this.props.actions.reset();
+      //this.props.actions.reset();
     });
   }
   
