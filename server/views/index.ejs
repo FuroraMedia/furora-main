@@ -17,11 +17,11 @@
     <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
     <script>
-      (function() {
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/static/my-service-worker.js');
-        }
-      })();
+      // (function() {
+      //   if('serviceWorker' in navigator) {
+      //     navigator.serviceWorker.register('/static/my-service-worker.js');
+      //   }
+      // })();
 
       (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;

@@ -7,7 +7,6 @@ export function createMessage(message) {
 }
 
 export function reset() {
-  //console.log('action reset')
   return dispatch => dispatch({ type: types.FORM_RESET });
 }
 
@@ -19,7 +18,7 @@ export function saveMessage(message) {
       dispatch(createMessage(message));
     }).catch(error => {
       dispatch(ajaxCallError(error));
-      throw(error);
+      throw (error);
     });
   };
 }

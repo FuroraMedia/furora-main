@@ -18,6 +18,7 @@ class ContactSection extends React.Component {
       showForm: true,
       recaptchaVerified: false,
     };
+    console.log('message', props, this.state.message)
     
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
@@ -117,9 +118,9 @@ ContactSection.propTypes = {
 }
 
 function mapStateToProps(state) {
-  let message = { name: '', email: '', message: '' };
+  // let message = { name: '', email: '', message: '' };
   return {
-    message
+    message: state.message
   };
 }
 

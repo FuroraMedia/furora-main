@@ -8,7 +8,7 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVer
   // 
   // const diasabled = recaptchaVerified ? 
   return (
-      <form className="c-form">    
+      <form className="c-form">
         <div className="o-layout">
           
           <div className="o-layout__item u-1/1">

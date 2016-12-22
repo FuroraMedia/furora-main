@@ -14,9 +14,7 @@ class Layout extends React.Component {
       <div className="o-container">
         <Header />
         <main>
-          <div className="o-wrapper">
-            {this.props.children}
-          </div>
+          {this.props.children}
         </main>
         <ContactSection />
         <Footer />

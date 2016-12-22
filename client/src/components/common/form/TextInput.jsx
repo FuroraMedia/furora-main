@@ -9,7 +9,6 @@ const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
   return (
     <fieldset className={wrapperClass}>
       <label className="c-form__label" htmlFor={name}>{label}</label>
-      
         <input
           type="text"
           name={name}
