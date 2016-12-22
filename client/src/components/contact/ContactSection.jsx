@@ -18,7 +18,7 @@ class ContactSection extends React.Component {
       showForm: true,
       recaptchaVerified: false,
     };
-    console.log('message', props, this.state.message)
+    //console.log('message', props, this.state.message)
     
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
