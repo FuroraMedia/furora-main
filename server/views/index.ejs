@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#7e4a97">
     <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
     <%_ if (process.env.NODE_ENV === 'production') { _%>
-      <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>">
+      <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
       <link href="/static/manifest.json" rel="manifest" />
       <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
     <%_ } _%>
