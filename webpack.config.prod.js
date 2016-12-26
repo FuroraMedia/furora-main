@@ -34,7 +34,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
     new SWPrecacheWebpackPlugin({
-      cacheId: 'my-project-name',
+      cacheId: 'furora-media',
       filename: 'my-service-worker.js',
       maximumFileSizeToCacheInBytes: 4194304,
       runtimeCaching: [{
