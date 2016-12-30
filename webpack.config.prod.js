@@ -42,6 +42,7 @@ module.exports = {
         urlPattern: /[.]mp3$/,
       }],
     }),
+    
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

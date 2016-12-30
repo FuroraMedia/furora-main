@@ -20,12 +20,13 @@ class ContactSection extends React.Component {
     };
     
     this.baseState = this.state;
+    console.log(this.baseState)
     //console.log('message', props, this.state.message)
     
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
-    // this.resetForm = this.resetForm.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
   updateMessageState(event) {
     const field = event.target.name;
@@ -69,7 +70,6 @@ class ContactSection extends React.Component {
     this.setState({ saving: true });
     this.props.actions.saveMessage(this.state.message)
     .then(() => {
-      // this.setState({ showForm: false });
       this.setState({ saving: false });
       this.resetForm();
     })
@@ -80,7 +80,8 @@ class ContactSection extends React.Component {
   }
   
   resetForm() {
-    this.state(this.baseState);
+    let message = { name: '', email: '', message: '' };
+    return this.setState({ message: message });
   }
   verifyCallback() {
     return this.setState({ recaptchaVerified: true });
@@ -105,7 +106,7 @@ class ContactSection extends React.Component {
             />}
             {/* {!this.state.showForm && <SuccessMsg />} */}
             
-            {/* <button onClick={this.resetForm}>reset</button> */}
+            <button onClick={this.resetForm}>reset</button>
           </div>
         </div>
       </section>
@@ -118,10 +119,11 @@ ContactSection.propTypes = {
   actions: PropTypes.object.isRequired,
 }
 
-function mapStateToProps(state) {
-  let message = { name: '', email: '', message: '' };
+function mapStateToProps(state, ownprops) {
+  console.log(state.message, ownprops)
+  // let message = { name: '', email: '', message: '' };
   return {
-    message: message,
+    message: state.message,
   };
 }
 

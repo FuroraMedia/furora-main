@@ -1,0 +1,14 @@
+<script>
+(function() {
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+    .register('/static/my-service-worker.js')
+    .then(function() {
+      console.log('Service worker registered!');
+    })
+    .catch(function(error) {
+      console.log('Error registering service worker: ', error);
+    });;
+  }
+})();
+</script>

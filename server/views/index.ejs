@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-    <meta name="description" content="Furora Media Ltd, A Web Development Consultancy based in Essex / London">
-    <meta name="author" content="Furora Media Ltd">
-    <meta name="theme-color" content="#7e4a97">
-    <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
-    <%_ if (process.env.NODE_ENV === 'production') { _%>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <meta name="description" content="Furora Media Ltd, A Web Development Consultancy based in Essex / London">
+  <meta name="author" content="Furora Media Ltd">
+  <meta name="theme-color" content="#7e4a97">
+  <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
+  <%_ if (process.env.NODE_ENV === 'production') { _%>
     <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
     <link href="/static/manifest.json" rel="manifest">
     <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet">
     <%_ } _%>
-  </head>
-  <body>
-    <div id="app"><% body %></div>
-    <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
-    <script>
-      (function() {
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/static/my-service-worker.js');
-        }
-      })();
-
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-          (i[r].q = i[r].q || []).push(arguments)
-        },
-        i[r].l = 1 * new Date();
-        a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-87329096-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <noscript>
-      Javascript is required to view this page..
-    </noscript>
-  </body>
+</head>
+<body>
+  <div id="app">
+    <% body %>
+  </div>
+  <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
+  <% include ./ga-tracking.ejs %>
+  <% include ./register-service-worker.ejs %>
+  <noscript>
+  Javascript is required to view this page..
+  </noscript>
+</body>
 </html>
