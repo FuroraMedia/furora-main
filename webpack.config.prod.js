@@ -28,21 +28,16 @@ module.exports = {
       purifyOptions: {
         minify: true,
         info: true,
-        rejected: true
-      }
+        rejected: true,
+      },
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
+      directoryIndex: path.join(__dirname, './server/views/index.ejs'),
       filename: 'my-service-worker.js',
-      maximumFileSizeToCacheInBytes: 4194304,
-      runtimeCaching: [{
-        handler: 'cacheFirst',
-        urlPattern: /[.]mp3$/,
-      }],
     }),
-    
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
