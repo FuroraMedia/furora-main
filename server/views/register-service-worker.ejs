@@ -1,5 +1,4 @@
 <script>
-(function() {
   if('serviceWorker' in navigator) {
     navigator.serviceWorker
     .register('/static/my-service-worker.js')
@@ -8,7 +7,6 @@
     })
     .catch(function(error) {
       console.log('Error registering service worker: ', error);
-    });;
-  }
-})();
+    });
+  };
 </script>
