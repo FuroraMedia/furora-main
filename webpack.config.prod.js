@@ -35,7 +35,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
-      directoryIndex: path.join(__dirname, './server/views/index.ejs'),
       filename: 'my-service-worker.js',
     }),
   ],
