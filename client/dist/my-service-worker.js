@@ -46,12 +46,10 @@ var ignoreUrlParametersMatching = [/^utm_/];
 
 
 var addDirectoryIndex = function (originalUrl, index) {
-  console.log(originalUrl)
     var url = new URL(originalUrl);
     if (url.pathname.slice(-1) === '/') {
       url.pathname += index;
     }
-    console.log(url.toString())
     return url.toString();
   };
 
@@ -189,7 +187,6 @@ self.addEventListener('fetch', function(event) {
     // (or whatever the directoryIndex option is set to) at the end.
     var directoryIndex = 'index.html';
     if (!shouldRespond && directoryIndex) {
-      console.log(directoryIndex)
       url = addDirectoryIndex(url, directoryIndex);
       shouldRespond = urlsToCacheKeys.has(url);
     }
@@ -226,3 +223,10 @@ self.addEventListener('fetch', function(event) {
     }
   }
 });
+
+
+
+
+
+
+
