@@ -14,6 +14,7 @@ module.exports = {
     path: path.join(__dirname, '/client/dist'),
     publicPath: '/static/',
     filename: 'bundle.js',
+    directoryIndex: path.join(__dirname, '/server/views/index.ejs'),
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
