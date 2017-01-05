@@ -36,7 +36,7 @@ module.exports = {
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
       filename: 'my-service-worker.js',
-      directoryIndex: path.join(__dirname, '/server/views/index.ejs'),
+      directoryIndex: '/',
     }),
   ],
   resolve: {

@@ -10,8 +10,14 @@
   <%_ if (process.env.NODE_ENV === 'production') { _%>
     <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
     <link href="/static/manifest.json" rel="manifest">
-    <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet">
-  <%_ } _%>
+    <% if (process.env.INLINE_STYLE) { %>
+      <style>
+        <%=css %>
+      </style>
+      <% } else { %>
+        <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
+        <% } %>
+          <%_ } _%>
 </head>
 <body>
   <div id="app">
@@ -20,8 +26,8 @@
   <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
   <% include ./ga-tracking.ejs %>
-  <% include ./register-service-worker.ejs %>
-  <noscript>
+    <% include ./register-service-worker.ejs %>
+      <noscript>
   Javascript is required to view this page..
   </noscript>
 </body>

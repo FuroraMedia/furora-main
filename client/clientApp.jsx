@@ -5,8 +5,6 @@ import routes from './routes';
 import store from './store';
 import './public/styles/shared.scss';
 
-console.log('store', store.getState());
-
 class App extends React.Component {
   constructor(props) {
     super(props);

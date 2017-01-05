@@ -20,9 +20,7 @@ class ContactSection extends React.Component {
     };
     
     this.baseState = this.state;
-    console.log(this.baseState)
-    //console.log('message', props, this.state.message)
-    
+
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
@@ -91,10 +89,8 @@ class ContactSection extends React.Component {
     return (
       <section className="o-wrapper c-contact">
         <div className="o-layout">
-          
           <div className="o-layout__item u-1/1">
-            
-
+          {/* {!this.state.showForm && <SuccessMsg />} */}
             { this.state.showForm && <ContactForm
               onChange={this.updateMessageState}
               onSubmit={this.submitForm}
@@ -104,9 +100,6 @@ class ContactSection extends React.Component {
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
             />}
-            {/* {!this.state.showForm && <SuccessMsg />} */}
-            
-            <button onClick={this.resetForm}>reset</button>
           </div>
         </div>
       </section>
@@ -119,11 +112,10 @@ ContactSection.propTypes = {
   actions: PropTypes.object.isRequired,
 }
 
-function mapStateToProps(state, ownprops) {
-  console.log(state.message, ownprops)
-  // let message = { name: '', email: '', message: '' };
+function mapStateToProps(state) {
+  let message = { name: '', email: '', message: '' };
   return {
-    message: state.message,
+    message,
   };
 }
 
