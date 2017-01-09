@@ -27,7 +27,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const gmail = (req, res, next) => {
-  console.log(serverConfig.gmail.client_user)
+
   if (serverConfig.gmail.isActive) {
     if (req.body.name === '' || req.body.email === '' || req.body.message === '') {
       return res.status(401).json({ message: 'All fields are required' });
@@ -42,7 +42,7 @@ const gmail = (req, res, next) => {
         console.log(err);
         res.send('error');
       } else {
-        console.log(`Message sent:, ${info}`);
+        console.log('Message sent', info);
         res.end('sent');
       }
     });
