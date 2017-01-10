@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/static/bundle.js","2ef283bbf883e2b9309d855ccaeafb06"],["/static/raleway-5594233c729ea8fa938152f7d3641c94.eot","5594233c729ea8fa938152f7d3641c94"],["/static/raleway-bd2f49c6af71f401cea29e950c1187d1.woff2","bd2f49c6af71f401cea29e950c1187d1"],["/static/raleway-bdf0f19513eebe4455a7fe85200bd6af.woff","bdf0f19513eebe4455a7fe85200bd6af"],["/static/raleway-ee3d3b885bc6e2ebc4686450794ef652.ttf","ee3d3b885bc6e2ebc4686450794ef652"],["/static/styles.css","0bb7859e577e672149d505fb6f3b30e9"]];
+var precacheConfig = [["/static/bundle.js","197692c430f5662f18971e798a82cb25"],["/static/raleway-5594233c729ea8fa938152f7d3641c94.eot","5594233c729ea8fa938152f7d3641c94"],["/static/raleway-bd2f49c6af71f401cea29e950c1187d1.woff2","bd2f49c6af71f401cea29e950c1187d1"],["/static/raleway-bdf0f19513eebe4455a7fe85200bd6af.woff","bdf0f19513eebe4455a7fe85200bd6af"],["/static/raleway-ee3d3b885bc6e2ebc4686450794ef652.ttf","ee3d3b885bc6e2ebc4686450794ef652"],["/static/styles.css","0bb7859e577e672149d505fb6f3b30e9"]];
 var cacheName = 'sw-precache-v2-furora-media-' + (self.registration ? self.registration.scope : '');
 
 

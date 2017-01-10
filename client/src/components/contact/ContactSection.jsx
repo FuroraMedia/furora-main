@@ -18,8 +18,6 @@ class ContactSection extends React.Component {
       showForm: true,
       recaptchaVerified: false,
     };
-    
-    this.baseState = this.state;
 
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
@@ -79,8 +77,8 @@ class ContactSection extends React.Component {
   }
   
   resetForm() {
-    let message = { name: '', email: '', message: '' };
-    return this.setState({ message: message });
+    console.log('reset');
+    this.props.actions.resetForm();
   }
   verifyCallback() {
     return this.setState({ recaptchaVerified: true });
@@ -101,6 +99,7 @@ class ContactSection extends React.Component {
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
             />}
+            <button onSubmit={this.resetForm}>reset</button>
           </div>
         </div>
       </section>
@@ -114,9 +113,8 @@ ContactSection.propTypes = {
 }
 
 function mapStateToProps(state) {
-  let message = { name: '', email: '', message: '' };
   return {
-    message,
+    message: state.message,
   };
 }
 

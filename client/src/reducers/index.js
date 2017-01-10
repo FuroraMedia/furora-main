@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { contactForm } from './formReducer';
+import message from './formReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
-  contactForm,
+  message,
   ajaxCallsInProgress,
 });
 
