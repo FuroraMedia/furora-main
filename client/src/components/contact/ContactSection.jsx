@@ -70,7 +70,7 @@ class ContactSection extends React.Component {
       //this.resetForm();
     })
     .catch((error) => {
-      console.log('error', error);
+      // console.log('error', error);
       this.setState({ saving: false });
       //this.props.actions.reset();
     });
@@ -99,7 +99,7 @@ class ContactSection extends React.Component {
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
             />}
-            <button onSubmit={this.resetForm}>reset</button>
+            {/* <button onSubmit={this.resetForm}>reset</button> */}
           </div>
         </div>
       </section>
