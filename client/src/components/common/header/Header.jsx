@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Logo from './Logo';
 
+import Arrows from './arrows';
+import Logo from './Logo';
 import SocialMedia from '../socialMedia/SocialMedia';
 
 const Header = () => (
@@ -23,6 +24,7 @@ const Header = () => (
             </div>
           </div>
         </div>
+        <Arrows />
       </div>
     </div>
   </header>

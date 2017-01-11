@@ -16,12 +16,14 @@ class HomePage extends React.Component {
   render() {
     //const children = this.props.children;
     return (
-      <div className="o-wrapper c-about">
-        <div className="o-layout">
-          <div className="o-layout__item u-1/1">
-            <div className="o-block">
-              <h2>Who are we?</h2>
-              <p></p>
+      <div className="c-about">
+        <div className="o-wrapper">
+          <div className="o-layout">
+            <div className="o-layout__item u-1/1">
+              <div className="o-block">
+                <h2>Who are we?</h2>
+                <p></p>
+              </div>
             </div>
           </div>
         </div>
