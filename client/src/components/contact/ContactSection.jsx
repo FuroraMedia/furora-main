@@ -88,8 +88,7 @@ class ContactSection extends React.Component {
     return (
       <section className="o-wrapper c-contact">
         <div className="o-layout">
-          <div className="o-layout__item u-1/1">
-          
+          <div className="o-layout__item u-1/1">  
           {/* <button onClick={this.resetForm}>reset</button> */}
           {/* {!this.state.showForm && <SuccessMsg />} */}
             { this.state.showForm && <ContactForm
