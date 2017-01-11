@@ -10,6 +10,7 @@ import * as formActions from '../../actions/formActions';
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
+    //console.log(props)
     
     this.state = {
       message: Object.assign({}, props.message),
@@ -75,10 +76,9 @@ class ContactSection extends React.Component {
       //this.props.actions.reset();
     });
   }
-  
   resetForm() {
     console.log('reset');
-    this.props.actions.resetForm();
+    this.props.actions.resetForm({});
   }
   verifyCallback() {
     return this.setState({ recaptchaVerified: true });
@@ -89,6 +89,8 @@ class ContactSection extends React.Component {
       <section className="o-wrapper c-contact">
         <div className="o-layout">
           <div className="o-layout__item u-1/1">
+          
+          {/* <button onClick={this.resetForm}>reset</button> */}
           {/* {!this.state.showForm && <SuccessMsg />} */}
             { this.state.showForm && <ContactForm
               onChange={this.updateMessageState}
@@ -99,8 +101,9 @@ class ContactSection extends React.Component {
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
             />}
-            {/* <button onSubmit={this.resetForm}>reset</button> */}
+
           </div>
+
         </div>
       </section>
     );

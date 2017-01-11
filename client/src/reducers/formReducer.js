@@ -7,8 +7,6 @@ export default function contactForm(state = initialState.formValues, action) {
       return [...state,
         Object.assign({}, action.message),
       ];
-    // case types.FORM_RESET:
-    //   return state;
     default:
       return state;
   }

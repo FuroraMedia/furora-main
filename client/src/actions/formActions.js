@@ -1,13 +1,15 @@
 import * as types from './actionTypes';
-import { beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
+import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 import messageApi from '../api/messageApi';
 
 export function createMessage(message) {
   return { type: types.FORM_SUBMIT_VALUE, message };
 }
 
-export function reset() {
-  return dispatch => dispatch({ type: types.FORM_RESET });
+export function resetForm() {
+  return dispatch => {
+    dispatch({ type: types.FORM_SUBMIT_VALUE })
+  }
 }
 
 export function saveMessage(message) {

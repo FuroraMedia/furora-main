@@ -36,7 +36,12 @@ module.exports = {
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
       filename: 'my-service-worker.js',
-      directoryIndex: '/',
+      runtimeCaching: [
+        {
+          urlPattern: '/',
+          handler: 'cacheFirst',
+        },
+      ],
     }),
   ],
   resolve: {

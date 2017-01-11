@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js -p",
-    "client": "babel-node server/devserver.js --presets es2015,stage-2",
+    "client": "babel-node server/devserver.js --presets es2015,stage-2 --debug",
     "start": "babel-node server/server.js --presets es2015,stage-2"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "node-sass": "^4.1.1",
     "normalize.css": "^5.0.0",
     "purifycss-webpack-plugin": "^2.0.3",
+    "redux-immutable-state-invariant": "^1.2.4",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "sw-precache-webpack-plugin": "^0.7.1",
