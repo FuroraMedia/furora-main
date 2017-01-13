@@ -32,20 +32,25 @@ const gmail = (req, res, next) => {
     if (req.body.name === '' || req.body.email === '' || req.body.message === '') {
       return res.status(401).json({ message: 'All fields are required' });
     }
-    transporter.sendMail({
-      from: req.body.name + req.body.email,
-      to: serverConfig.mail.contact_address,
-      subject: 'GMAIL Website contact',
-      text: req.body.message,
-    }, (err, info) => {
-      if (err) {
-        console.log(err);
-        res.send('error');
-      } else {
-        console.log('Message sent', info);
-        res.end('sent');
-      }
-    });
+    
+    console.log('Message sent');
+    res.end('sent');
+    
+    console.log(req.body)
+    // transporter.sendMail({
+    //   from: req.body.name + req.body.email,
+    //   to: serverConfig.mail.contact_address,
+    //   subject: 'GMAIL Website contact',
+    //   text: req.body.message,
+    // }, (err, info) => {
+    //   if (err) {
+    //     console.log(err);
+    //     res.send('error');
+    //   } else {
+    //     console.log('Message sent', info);
+    //     res.end('sent');
+    //   }
+    // });
   } else {
     res.end('gmail is currently disabled');
   }

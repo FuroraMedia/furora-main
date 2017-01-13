@@ -6,6 +6,7 @@ const checkStatus = (response) => {
   } else {
     const error = new Error(response.statusText);
     error.response = response;
+    console.log(error)
     throw error;
   }
 };
@@ -17,9 +18,9 @@ class Api {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json'
+        Accept: 'application/json',
       },
-      body: JSON.stringify(message)
+      body: JSON.stringify(message),
     }).then(checkStatus);
   }
 }

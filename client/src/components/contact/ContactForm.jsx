@@ -53,7 +53,7 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVer
           <div className="o-layout__item u-1/1">
             <input
               type="submit"
-              disabled={!recaptchaVerified}
+              // disabled={!recaptchaVerified}
               // value={saving ? 'Saving...' : 'Save'}
               className="c-btn c-btn--primary"
               value="submit"

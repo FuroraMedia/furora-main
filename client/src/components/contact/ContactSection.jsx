@@ -23,7 +23,6 @@ class ContactSection extends React.Component {
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
-    this.resetForm = this.resetForm.bind(this);
   }
   updateMessageState(event) {
     const field = event.target.name;
@@ -51,9 +50,9 @@ class ContactSection extends React.Component {
       errors.message = 'A message is required';
       formIsValid = false;
     }
-    if (this.state.recaptchaVerified === false) {
-      formIsValid = false;
-    }
+    // if (this.state.recaptchaVerified === false) {
+    //   formIsValid = false;
+    // }
     this.setState({ errors: errors });
     return formIsValid;
   }
@@ -76,10 +75,6 @@ class ContactSection extends React.Component {
       //this.props.actions.reset();
     });
   }
-  resetForm() {
-    console.log('reset');
-    this.props.actions.resetForm({});
-  }
   verifyCallback() {
     return this.setState({ recaptchaVerified: true });
   }
@@ -97,8 +92,8 @@ class ContactSection extends React.Component {
               message={this.state.message}
               errors={this.state.errors}
               saving={this.state.saving}
-              recaptchaVerified={this.state.recaptchaVerified}
-              recaptchaVerifiedCallback={this.verifyCallback}
+              // recaptchaVerified={this.state.recaptchaVerified}
+              // recaptchaVerifiedCallback={this.verifyCallback}
             />}
 
           </div>
