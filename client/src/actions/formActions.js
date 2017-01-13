@@ -8,7 +8,7 @@ export function createMessage(message) {
 
 export function resetForm() {
   return dispatch => {
-    dispatch({ type: types.FORM_SUBMIT_VALUE })
+    dispatch({ type: types.FORM_RESET })
   }
 }
 
