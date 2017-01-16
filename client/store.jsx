@@ -1,15 +1,18 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './src/reducers';
-//import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './src/reducers';
+import createLogger from 'redux-logger';
+//import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+
+const middleware = [ thunk ];
+if (process.env.NODE_ENV !== 'production') {
+  middleware.push(createLogger());
+}
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-  applyMiddleware(thunk),
-)
-  
+  composeWithDevTools(applyMiddleware(...middleware))
 );
 
 export default store;

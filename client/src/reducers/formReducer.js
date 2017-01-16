@@ -6,7 +6,7 @@ export default function contactForm(state = initialState.formValues, action) {
     case types.FORM_RESET:
       return initialState.formValues;
     case types.FORM_SUBMIT_SUCCESS:
-      return Object.assign({}, action.message);
+      return Object.assign({}, state.formValues, action.message);
     default:
       return state;
   }

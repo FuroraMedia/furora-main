@@ -9,6 +9,7 @@ const GLOBALS = {
 };
 
 module.exports = {
+  context: __dirname,
   entry: ['./client/browserEntry.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
@@ -37,7 +38,7 @@ module.exports = {
       cacheId: 'furora-media',
       filename: 'my-service-worker.js',
       runtimeCaching: [{
-          urlPattern: '/',
+          urlPattern: /[.]mp3$/,
           handler: 'cacheFirst',
       }],
     }),

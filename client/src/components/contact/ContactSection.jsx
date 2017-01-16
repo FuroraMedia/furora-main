@@ -4,16 +4,14 @@ import { connect } from 'react-redux';
 import validator from 'validator';
 
 import ContactForm from './ContactForm';
-import SuccessMsg from '../common/form/SuccessMessage';
+// import SuccessMsg from '../common/form/SuccessMessage';
 import * as formActions from '../../actions/formActions';
 
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
-    //console.log(props)
-    
     this.state = {
-      message: Object.assign({}, props.message),
+      message: Object.assign({}, this.props.message),
       errors: {},
       saving: false,
       showForm: true,
@@ -24,6 +22,7 @@ class ContactSection extends React.Component {
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
   }
+
   updateMessageState(event) {
     const field = event.target.name;
     let message = this.state.message;
@@ -83,7 +82,9 @@ class ContactSection extends React.Component {
     return (
       <section className="o-wrapper c-contact">
         <div className="o-layout">
-          <div className="o-layout__item u-1/1">  
+          <div className="o-layout__item u-1/1"> 
+          
+          <span>{this.props.message.name} {this.props.message.email} {this.props.message.message}</span> 
           {/* <button onClick={this.resetForm}>reset</button> */}
           {/* {!this.state.showForm && <SuccessMsg />} */}
             { this.state.showForm && <ContactForm
