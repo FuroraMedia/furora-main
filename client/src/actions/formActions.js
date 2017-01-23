@@ -22,5 +22,5 @@ export function saveMessage(message) {
       dispatch(ajaxCallError(error));
       throw (error);
     });
-  }
+  };
 }

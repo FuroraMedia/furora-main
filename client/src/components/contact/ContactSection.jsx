@@ -10,6 +10,7 @@ import * as formActions from '../../actions/formActions';
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
+    console.log('props', this.props)
     this.state = {
       message: Object.assign({}, this.props.message),
       errors: {},
@@ -111,6 +112,7 @@ ContactSection.propTypes = {
 }
 
 function mapStateToProps(state) {
+  console.log('mappy', state)
   return {
     message: state.message,
   };

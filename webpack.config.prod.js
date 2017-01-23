@@ -41,6 +41,9 @@ module.exports = {
           urlPattern: /[.]mp3$/,
           handler: 'cacheFirst',
       }],
+      dynamicUrlToDependencies: {
+        '/': ['./server/views/index.ejs']
+      }
     }),
   ],
   resolve: {

@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/","6f5df57b7ab397f835fdd649c499afe8"],["/static/bundle.js","6f5df57b7ab397f835fdd649c499afe8"],["/static/raleway-5594233c729ea8fa938152f7d3641c94.eot","5594233c729ea8fa938152f7d3641c94"],["/static/raleway-bd2f49c6af71f401cea29e950c1187d1.woff2","bd2f49c6af71f401cea29e950c1187d1"],["/static/raleway-bdf0f19513eebe4455a7fe85200bd6af.woff","bdf0f19513eebe4455a7fe85200bd6af"],["/static/raleway-ee3d3b885bc6e2ebc4686450794ef652.ttf","ee3d3b885bc6e2ebc4686450794ef652"],["/static/styles.css","5a5a7d3f99e179bb170b2445560b1961"]];
+var precacheConfig = [["/","7cfdbaed2b3e9663c6128d9e0fa08028"],["/static/bundle.js","cac0daf733385652fd8cac3b11d26975"],["/static/raleway-5594233c729ea8fa938152f7d3641c94.eot","5594233c729ea8fa938152f7d3641c94"],["/static/raleway-bd2f49c6af71f401cea29e950c1187d1.woff2","bd2f49c6af71f401cea29e950c1187d1"],["/static/raleway-bdf0f19513eebe4455a7fe85200bd6af.woff","bdf0f19513eebe4455a7fe85200bd6af"],["/static/raleway-ee3d3b885bc6e2ebc4686450794ef652.ttf","ee3d3b885bc6e2ebc4686450794ef652"],["/static/styles.css","5a5a7d3f99e179bb170b2445560b1961"]];
 var cacheName = 'sw-precache-v2-furora-media-' + (self.registration ? self.registration.scope : '');
 
 
@@ -253,3 +253,7 @@ self.addEventListener('fetch', function(event) {
 // Runtime cache configuration, using the sw-toolbox library.
 
 toolbox.router.get(/[.]mp3$/, toolbox.cacheFirst, {});
+
+
+
+

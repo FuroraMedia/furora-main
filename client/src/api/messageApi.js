@@ -21,7 +21,9 @@ class Api {
         Accept: 'application/json',
       },
       body: JSON.stringify(message),
-    }).then(checkStatus);
+    })
+    .then(checkStatus)
+    .catch(err => console.log('error', err));
   }
 }
 export default Api;

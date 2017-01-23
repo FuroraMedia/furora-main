@@ -1,5 +1,5 @@
 export default {
-  formValues: {
+  message: {
     name: '', email: '', message: '',
   },
   ajaxCallsInProgress: 0,
