@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 const SelectInput = ({
   name,
@@ -7,7 +7,7 @@ const SelectInput = ({
   defaultOption,
   value,
   error,
-  options
+  options,
 }) => {
   return (
     <div className="form-group">

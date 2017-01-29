@@ -31,7 +31,7 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
+    "file-loader": "^0.10.0",
     "jest": "^18.1.0",
     "jest-cli": "^18.1.0",
     "mocha": "^3.2.0",
@@ -42,13 +42,14 @@
     "redux-immutable-state-invariant": "^1.2.4",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "sw-precache-webpack-plugin": "^0.7.2",
+    "sw-precache-webpack-plugin": "^0.8.0",
     "url-loader": "^0.5.7",
     "vhost": "^3.0.2",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^3.2.0",
+    "webpack-validator": "^2.3.0"
   },
   "dependencies": {
     "babel-cli": "^6.18.0",

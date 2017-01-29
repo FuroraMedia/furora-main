@@ -3,12 +3,13 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Purify = require('purifycss-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const validate = require('webpack-validator');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
 };
 
-module.exports = {
+module.exports = validate({
   context: __dirname,
   entry: ['./client/browserEntry.jsx'],
   output: {
@@ -39,7 +40,7 @@ module.exports = {
       filename: 'my-service-worker.js',
       runtimeCaching: [{
           urlPattern: /[.]mp3$/,
-          handler: 'cacheFirst',
+          handler: 'networkFirst',
       }],
       dynamicUrlToDependencies: {
         '/': ['./server/views/index.ejs']
@@ -50,13 +51,13 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['node_modules'],
   },
-  preLoaders: [
-    {
-      test: /\.jsx?$/,
-      loader: 'eslint-loader',
-      exclude: /node_modules/,
-    },
-  ],
+  // preLoaders: [
+  //   {
+  //     test: /\.jsx?$/,
+  //     loader: 'eslint-loader',
+  //     exclude: /node_modules/,
+  //   },
+  // ],
   module: {
     loaders: [
       {
@@ -68,14 +69,14 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        loader: ['babel'],
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react'],
         },
       },
       {
         test: /\.js$/,
-        loader: ['babel'],
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react'],
         },
@@ -86,4 +87,4 @@ module.exports = {
       },
     ],
   },
-};
+});

@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
+const validate = require('webpack-validator');
 
-module.exports = {
+module.exports = validate({
   debug: true,
   devtool: 'source-map',
   // noInfo: false,
@@ -22,14 +23,14 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['node_modules'],
   },
-  preLoaders: [
-    {
-      test: /\.jsx?$/,
-      loader: 'eslint-loader',
-      exclude: /node_modules/,
-    },
-  ],
   module: {
+    // preLoaders: [
+    //   {
+    //     test: /\.jsx?$/,
+    //     loader: 'eslint-loader',
+    //     exclude: /node_modules/,
+    //   },
+    // ],
     loaders: [
       {
         test: /\.scss$/,
@@ -37,14 +38,14 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        loader: ['babel'],
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react'],
         },
       },
       {
         test: /\.js?$/,
-        loader: ['babel'],
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react'],
         },
@@ -56,4 +57,4 @@ module.exports = {
       },
     ],
   },
-};
+});
