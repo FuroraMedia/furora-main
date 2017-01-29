@@ -44,7 +44,7 @@ module.exports = validate({
           handler: 'cacheFirst',
       }],
       dynamicUrlToDependencies: {
-        '/': ['./server/views/index.ejs']
+        '/': ['./server/views/index.ejs'],
       }
     }),
   ],
