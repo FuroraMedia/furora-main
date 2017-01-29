@@ -38,9 +38,10 @@ module.exports = validate({
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
       filename: 'my-service-worker.js',
+      minify: true,
       runtimeCaching: [{
           urlPattern: /[.]mp3$/,
-          handler: 'networkFirst',
+          handler: 'cacheFirst',
       }],
       dynamicUrlToDependencies: {
         '/': ['./server/views/index.ejs']
