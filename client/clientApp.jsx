@@ -10,7 +10,6 @@ class App extends React.Component {
     super(props);
   }
   render() {
-    console.log('client', store.getState())
     return (
       <Provider store={store} key="provider">
         <Router history={browserHistory} routes={routes} />

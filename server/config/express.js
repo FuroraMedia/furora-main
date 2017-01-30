@@ -21,6 +21,9 @@ const expressConfig = (app) => {
   app.use('/static', express.static(path.join(__dirname, '../../client/dist'), {
     maxAge: serverConfig.cacheTime,
   }));
+  app.use('/sw.js', express.static(path.join(__dirname, '../../client/dist/sw.js')));
+  app.use('/manifest.json', express.static(path.join(__dirname, '../../client/dist/manifest.json')));
+
   app.use('/api/v1', api);
 };
 

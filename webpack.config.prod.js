@@ -37,15 +37,15 @@ module.exports = validate({
     new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
-      filename: 'my-service-worker.js',
-      minify: true,
+      filename: 'sw.js',
+      // minify: true,
       runtimeCaching: [{
-          urlPattern: /[.]mp3$/,
-          handler: 'cacheFirst',
+        urlPattern: '/',
+        handler: 'cacheFirst',
       }],
       dynamicUrlToDependencies: {
         '/': ['./server/views/index.ejs'],
-      }
+      },
     }),
   ],
   resolve: {

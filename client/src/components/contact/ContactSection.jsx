@@ -10,9 +10,8 @@ import * as formActions from '../../actions/formActions';
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
-    console.log('props', this.props)
     this.state = {
-      message: Object.assign({}, this.props.message),
+      message: Object.assign({}, this.props.mail),
       errors: {},
       saving: false,
       showForm: true,
@@ -22,6 +21,10 @@ class ContactSection extends React.Component {
     this.submitForm = this.submitForm.bind(this);
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    this.setState({ message: nextProps.mail });
   }
 
   updateMessageState(event) {
@@ -50,9 +53,9 @@ class ContactSection extends React.Component {
       errors.message = 'A message is required';
       formIsValid = false;
     }
-    // if (this.state.recaptchaVerified === false) {
-    //   formIsValid = false;
-    // }
+    if (this.state.recaptchaVerified === false) {
+      formIsValid = false;
+    }
     this.setState({ errors: errors });
     return formIsValid;
   }
@@ -67,12 +70,9 @@ class ContactSection extends React.Component {
     this.props.actions.saveMessage(this.state.message)
     .then(() => {
       this.setState({ saving: false });
-      //this.resetForm();
     })
     .catch((error) => {
-      // console.log('error', error);
       this.setState({ saving: false });
-      //this.props.actions.reset();
     });
   }
   verifyCallback() {
@@ -83,19 +83,15 @@ class ContactSection extends React.Component {
     return (
       <section className="o-wrapper c-contact">
         <div className="o-layout">
-          <div className="o-layout__item u-1/1"> 
-          
-          <span>{this.props.message.name} {this.props.message.email} {this.props.message.message}</span> 
-          {/* <button onClick={this.resetForm}>reset</button> */}
-          {/* {!this.state.showForm && <SuccessMsg />} */}
+          <div className="o-layout__item u-1/1">
             { this.state.showForm && <ContactForm
               onChange={this.updateMessageState}
               onSubmit={this.submitForm}
               message={this.state.message}
               errors={this.state.errors}
               saving={this.state.saving}
-              // recaptchaVerified={this.state.recaptchaVerified}
-              // recaptchaVerifiedCallback={this.verifyCallback}
+              recaptchaVerified={this.state.recaptchaVerified}
+              recaptchaVerifiedCallback={this.verifyCallback}
             />}
 
           </div>
@@ -107,14 +103,13 @@ class ContactSection extends React.Component {
 }
 
 ContactSection.propTypes = {
-  message: PropTypes.object.isRequired,
+  mail: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state) {
-  console.log('mappy', state)
   return {
-    message: state.message,
+    mail: state.formValues,
   };
 }
 

@@ -1,13 +1,18 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+// import initialState from './initialState';
 
-export default function contactForm(state = initialState.message, action) {
+const initialState = {
+  name: '', email: '', message: '', submitted: false,
+}
+
+export default function contactForm(state = initialState, action) {
   switch (action.type) {
     case types.FORM_RESET:
-      return initialState.message;
+      return initialState;
     case types.FORM_SUBMIT_SUCCESS:
-      // return Object.assign({}, state.message, action.message);
-      return action.message;
+      return {
+        ...state, ...action.payload
+      }
     default:
       return state;
   }

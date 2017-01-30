@@ -30,16 +30,4 @@ app.use(require('webpack-hot-middleware')(compiler));
 expressConfig(app);
 reactRoutes(app);
 
-
-const site = module.exports = express();
-site.use(vhost('dev.furora.media', app));
-
-
-if (!module.parent) {
-  site.listen(serverConfig.port, 'localhost', (err) => {
-    if (err) {
-      console.log(err)
-    }
-    console.log(`Listening at http://localhost:${serverConfig.port}`);
-  });
-}
+app.listen(serverConfig.port);
