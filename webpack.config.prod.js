@@ -34,11 +34,15 @@ module.exports = validate({
       },
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({ output: { comments: false } }),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false,
+      },
+    }),
     new SWPrecacheWebpackPlugin({
       cacheId: 'furora-media',
       filename: 'sw.js',
-      // minify: true,
+      minify: true,
       runtimeCaching: [{
         urlPattern: '/',
         handler: 'cacheFirst',
@@ -46,6 +50,7 @@ module.exports = validate({
       dynamicUrlToDependencies: {
         '/': ['./server/views/index.ejs'],
       },
+      ignoreUrlParametersMatching: [/./],
     }),
   ],
   resolve: {
