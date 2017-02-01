@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/FuroraMedia/furora-main#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
     "css-loader": "^0.26.1",
     "dotenv": "^4.0.0",
     "eslint": "^3.12.0",
@@ -34,7 +33,6 @@
     "file-loader": "^0.10.0",
     "jest": "^18.1.0",
     "jest-cli": "^18.1.0",
-    "mocha": "^3.2.0",
     "morgan": "^1.7.0",
     "node-sass": "^4.3.0",
     "normalize.css": "^5.0.0",

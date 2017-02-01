@@ -7,9 +7,11 @@
   <meta name="author" content="Furora Media Ltd">
   <meta name="theme-color" content="#7e4a97">
   <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
+  <%_ if (process.env.NODE_ENV === 'production') { _%>
   <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
   <link href="/manifest.json" rel="manifest">
   <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
+  <%_ } _%>
 </head>
 <body>
   <div id="app">
@@ -17,9 +19,10 @@
   </div>
   <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
+  <%_ if (process.env.NODE_ENV === 'production') { _%>
   <% include ./ga-tracking.ejs %>
-  
-    <% include ./register-service-worker.ejs %>
+  <% include ./register-service-worker.ejs %>
+  <%_ } _%>
       <noscript>
   Javascript is required to view this page..
   </noscript>

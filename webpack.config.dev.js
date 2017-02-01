@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const validate = require('webpack-validator');
 
-module.exports = validate({
+module.exports = {
   debug: true,
   devtool: 'source-map',
   // noInfo: false,
@@ -57,4 +57,4 @@ module.exports = validate({
       },
     ],
   },
-});
+};

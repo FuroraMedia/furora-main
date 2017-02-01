@@ -3,13 +3,12 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Purify = require('purifycss-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const validate = require('webpack-validator');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
 };
 
-module.exports = validate({
+module.exports = {
   context: __dirname,
   entry: ['./client/browserEntry.jsx'],
   output: {
@@ -57,13 +56,6 @@ module.exports = validate({
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['node_modules'],
   },
-  // preLoaders: [
-  //   {
-  //     test: /\.jsx?$/,
-  //     loader: 'eslint-loader',
-  //     exclude: /node_modules/,
-  //   },
-  // ],
   module: {
     loaders: [
       {
@@ -93,4 +85,4 @@ module.exports = validate({
       },
     ],
   },
-});
+};

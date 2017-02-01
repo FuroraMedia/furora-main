@@ -30,17 +30,17 @@ app.use(require('webpack-hot-middleware')(compiler));
 expressConfig(app);
 reactRoutes(app);
 
-app.listen(serverConfig.port);
+// app.listen(serverConfig.port);
 
-// const site = module.exports = express();
-// site.use(vhost('dev.furora.media', app));
+const site = module.exports = express();
+site.use(vhost('dev.furora.media', app));
 
 
-// if (!module.parent) {
-//   site.listen(serverConfig.port, 'localhost', (err) => {
-//     if (err) {
-//       console.log(err)
-//     }
-//     console.log(`Listening at http://localhost:${serverConfig.port}`);
-//   });
-// }
+if (!module.parent) {
+  site.listen(serverConfig.port, 'localhost', (err) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(`Listening at http://localhost:${serverConfig.port}`);
+  });
+}
