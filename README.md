@@ -19,6 +19,7 @@ npm run build
 ##Dev
 ```js
 npm run client
+```
 
 ##License
 Copyright (c) 2017 Furora Media Ltd

@@ -9,15 +9,16 @@ const GLOBALS = {
 };
 
 module.exports = {
-  context: __dirname,
-  entry: ['./client/browserEntry.jsx'],
+  context: path.join(__dirname, '/client'),
+  target: 'web',
+  entry: ['./browserEntry.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
     publicPath: '/static/',
     filename: 'bundle.js',
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new Purify({
@@ -32,7 +33,6 @@ module.exports = {
         rejected: true,
       },
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false,
@@ -53,35 +53,49 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    modulesDirectories: ['node_modules'],
+    extensions: ['.js', '.jsx'],
+    modules: ['node_modules'],
   },
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /(\.css)$/,
-        loader: ExtractTextPlugin.extract('css'),
-      }, {
+        loader: ExtractTextPlugin.extract('css-loader'),
+      },
+      {
         test: /(\.scss)$/,
-        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!sass-loader'
+        }),
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react'],
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'react'],
+            },
+          },
+        ],
       },
       {
-        test: /\.js$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react'],
-        },
-        exclude: ['/node_modules/', '/\.spec\.js/'],
-      }, {
-        test: /\.(html|jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: 'url-loader?limit=20000&name=[name]-[hash].[ext]',
+        test: /\.js?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'react'],
+            },
+          },
+        ],
+        exclude: ['/node_modules/', '/server/', '/.spec.js/'],
+      },
+      {
+        test: /\.(jpe|jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        use: 'url-loader?limit=25000&name=[name]-[hash].[ext]',
       },
     ],
   },

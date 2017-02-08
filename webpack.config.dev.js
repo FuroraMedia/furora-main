@@ -1,59 +1,61 @@
 const path = require('path');
 const webpack = require('webpack');
-const validate = require('webpack-validator');
 
 module.exports = {
-  debug: true,
-  devtool: 'source-map',
-  // noInfo: false,
+  context: path.join(__dirname, '/client'),
+  target: 'web',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './client/browserEntry.jsx',
+    './browserEntry.jsx',
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '/client/dist'),
     publicPath: '/static/',
     filename: 'bundle.js',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    modulesDirectories: ['node_modules'],
+    extensions: ['.js', '.jsx'],
+    modules: ['src', 'node_modules'],
   },
   module: {
-    // preLoaders: [
-    //   {
-    //     test: /\.jsx?$/,
-    //     loader: 'eslint-loader',
-    //     exclude: /node_modules/,
-    //   },
-    // ],
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass'],
+        use: ['style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react'],
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'react'],
+            },
+          },
+        ],
       },
       {
         test: /\.js?$/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react'],
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'react'],
+            },
+          },
+        ],
         exclude: ['/node_modules/', '/server/', '/.spec.js/'],
       },
       {
         test: /\.(jpe|jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
+        use: 'url-loader?limit=30000&name=[name]-[hash].[ext]',
       },
     ],
   },
