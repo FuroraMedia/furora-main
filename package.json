@@ -65,7 +65,7 @@
     "express": "^4.14.0",
     "inuitcss": "^6.0.0-beta.4",
     "isomorphic-fetch": "^2.2.1",
-    "nodemailer": "^3.0.2",
+    "nodemailer": "^2.6.4",
     "nodemailer-mailgun-transport": "^1.2.4",
     "nodemailer-smtp-transport": "^2.7.2",
     "passport": "^0.3.2",

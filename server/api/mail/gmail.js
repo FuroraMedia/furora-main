@@ -30,6 +30,7 @@ const gmail = (req, res, next) => {
     if (req.body.name === '' || req.body.email === '' || req.body.message === '') {
       return res.status(401).json({ message: 'All fields are required' });
     }
+
     transporter.sendMail({
       from: req.body.name + req.body.email,
       to: serverConfig.mail.contact_address,
