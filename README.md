@@ -1,5 +1,5 @@
 # Furora.Media
-React Redux Progressive + Universal web app Portfolio site, powered by node + express. Scss based on inuitcss, webpack used to create Service worker.
+React Redux Progressive + Universal web app Portfolio site, powered by node + express. SCSS based on inuitcss, webpack 2 used to create Service worker.
 
 ##Install dependencies
 ```js
