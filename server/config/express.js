@@ -17,9 +17,9 @@ const expressConfig = (app) => {
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
-  // if (process.env.NODE_ENV === 'production') {
-  //   app.use(forceSSL);
-  // }
+  if (process.env.NODE_ENV === 'production') {
+    app.use(forceSSL);
+  }
   app.use('/static', express.static(path.join(__dirname, '../../client/dist'), {
     maxAge: serverConfig.cacheTime,
   }));
