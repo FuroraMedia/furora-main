@@ -5,11 +5,10 @@ import mailGun from './mailGun';
 
 const mail = express.Router();
 
-mail.post('/gmail', gmail);
-mail.post('/mailGun', mailGun);
-
-mail.get('/', (req, res) => {
-  res.status(200).json({ message: 'Connected!' });
-});
+if (process.env.GMAIL_ACTIVE_STATUS) {
+  mail.post('/', gmail);
+} else {
+  mail.post('/', mailGun);
+}
 
 export default mail;

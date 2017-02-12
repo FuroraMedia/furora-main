@@ -14,7 +14,7 @@ import fetch from 'isomorphic-fetch';
 
 class Api {
   static saveMessage(message) {
-    return fetch('/api/v1/mail/gmail', {
+    return fetch('/api/v1/mail/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
