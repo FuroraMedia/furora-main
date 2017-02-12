@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 
 import nodemailer from 'nodemailer';
-//import xoauth2 from 'xoauth2';
 import config from '../../config/config';
 const serverConfig = config.getConfigByEnv();
 
@@ -17,6 +16,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+transporter.on('token', token => {
+  console.log('A new access token was generated');
+  console.log('User: %s', token.user);
+  console.log('Access Token: %s', token.accessToken);
+  console.log('Expires: %s', new Date(token.expires));
+});
+
 const gmail = (req, res, next) => {
 
   if (serverConfig.gmail.isActive) {
@@ -27,7 +33,7 @@ const gmail = (req, res, next) => {
     transporter.sendMail({
       from: req.body.name + req.body.email,
       to: serverConfig.mail.contact_address,
-      subject: 'GMAIL Website contact',
+      subject: 'FURORA-FORM Website contact',
       text: req.body.message,
     }, (err, info) => {
       if (err) {
