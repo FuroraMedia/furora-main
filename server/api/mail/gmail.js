@@ -32,8 +32,8 @@ const gmail = (req, res, next) => {
 
     transporter.sendMail({
       from: req.body.name + req.body.email,
-      to: serverConfig.mail.contact_address,
-      subject: 'FURORA-FORM Website contact',
+      to: serverConfig.gmail.client_user,
+      subject: 'FURORA-FORM contact from ' + req.body.name + ' @ ' + req.body.email,
       text: req.body.message,
     }, (err, info) => {
       if (err) {
