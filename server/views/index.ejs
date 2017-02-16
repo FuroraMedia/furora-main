@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-  <meta name="description" content="Furora Media Ltd, A Web Development Consultancy based in Essex / London">
-  <meta name="author" content="Furora Media Ltd">
-  <meta name="theme-color" content="#7e4a97">
   <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
   <%_ if (process.env.NODE_ENV === 'production') { _%>
-  <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
-  <link href="/manifest.json" rel="manifest">
-  <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
+    <% include ./meta-tags.ejs %>
+    <link rel="canonical" href="https://www.furora.media/" />
+    <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
+    <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
+    <link href="/manifest.json" rel="manifest">
   <%_ } _%>
 </head>
 <body>
@@ -18,11 +17,8 @@
   <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
   <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
   <%_ if (process.env.NODE_ENV === 'production') { _%>
-  <% include ./register-service-worker.ejs %>
-  <% include ./ga-tracking.ejs %>
+    <% include ./register-service-worker.ejs %>
+    <% include ./ga-tracking.ejs %>
   <%_ } _%>
-  <noscript>
-    Javascript is required to view this page..
-  </noscript>
 </body>
 </html>

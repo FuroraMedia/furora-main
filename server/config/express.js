@@ -25,7 +25,7 @@ const expressConfig = (app) => {
   }));
   app.use('/sw.js', express.static(path.join(__dirname, '../../client/dist/sw.js')));
   app.use('/manifest.json', express.static(path.join(__dirname, '../../client/dist/manifest.json')));
-
+  app.use('/sitemap.xml', express.static(path.join(__dirname, '../../client/dist/sitemap.xml')));
   app.use('/api/v1', api);
 };
 
