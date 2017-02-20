@@ -6,4 +6,4 @@ npm-debug.log
 .env
 todo.txt
 .editorconfig
-/server/config/client_secret.json
+server/api/mail/helper.json

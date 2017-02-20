@@ -9,8 +9,6 @@ import store from '../../client/store';
 import myRoutes from '../../client/routes';
 
 const reactRoutes = (app) => {
-  console.log('here')
-  
   app.use((req, res) => {
     match({ routes: myRoutes, location: req.url }, (err, redirect, props) => {
       if (err) {

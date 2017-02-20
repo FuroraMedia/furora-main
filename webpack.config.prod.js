@@ -24,6 +24,7 @@ module.exports = {
     new Purify({
       basePath: path.join(__dirname, './client/src'),
       paths: [
+        './server/views/index.ejs',
         'components/**/*.jsx',
       ],
       resolveExtensions: ['.html', '.js', '.jsx'],

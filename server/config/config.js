@@ -19,6 +19,7 @@ const Config = {
       secret: process.env.GMAIL_CLIENT_SECRET,
       refresh_token: process.env.GMAIL_CLIENT_REFRESH_TOKEN,
       access_token: process.env.GMAIL_CLIENT_ACCESS_TOKEN,
+      token_file: process.env.GMAIL_CLIENT_TOKEN_FILE,
     },
   },
   production: {
@@ -38,6 +39,7 @@ const Config = {
       secret: process.env.GMAIL_CLIENT_SECRET,
       refresh_token: process.env.GMAIL_CLIENT_REFRESH_TOKEN,
       access_token: process.env.GMAIL_CLIENT_ACCESS_TOKEN,
+      token_file: process.env.GMAIL_CLIENT_TOKEN_FILE,
     },
   },
 };
