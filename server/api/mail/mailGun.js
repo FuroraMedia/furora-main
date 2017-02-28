@@ -1,7 +1,7 @@
 import mg from 'nodemailer-mailgun-transport';
 import nodemailer from 'nodemailer';
-
 import config from '../../config/config';
+
 const serverConfig = config.getConfigByEnv();
 
 const auth = {
@@ -21,10 +21,10 @@ module.exports = (req, res) => {
     text: req.body.message,
   }, (err, info) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       res.send('error');
     } else {
-      console.log(`Message sent:, ${info}`);
+      // console.log(`Message sent:, ${info}`);
       res.end('sent');
     }
   });

@@ -1,9 +1,8 @@
 import * as types from '../actions/actionTypes';
-// import initialState from './initialState';
 
 const initialState = {
   ajaxCallsInProgress: 0,
-}
+};
 
 function actionTypeEndsInSuccess(type) {
   return type.substring(type.length - 8) === '_SUCCESS';

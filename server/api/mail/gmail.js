@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
+
 import nodemailer from 'nodemailer';
+import path from 'path';
 import config from '../../config/config';
 import { getToken, storeToken } from './oauth';
 
 const serverConfig = config.getConfigByEnv();
-const accessTokenKey = getToken();
-// console.log(accessToken);
+const tokenPath = path.join(__dirname, serverConfig.gmail.token_file);
+const accessTokenKey = getToken(tokenPath);
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -24,8 +26,7 @@ transporter.on('token', (token) => {
   console.log('User: %s', token.user);
   console.log('Access Token: %s', token.accessToken);
   console.log('Expires: %s', new Date(token.expires));
-  
-  storeToken(token.accessToken, token.expires);
+  storeToken(tokenPath, token.accessToken, token.expires);
 });
 
 const gmail = (req, res) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import Recaptcha from 'react-gcaptcha';
 import TextInput from '../common/form/TextInput';
 import TextArea from '../common/form/TextArea';
+import Message from '../common/form/Message';
 
 const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVerified, recaptchaVerifiedCallback }) => {
   return (
@@ -11,6 +12,8 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVer
           <div className="o-layout__item u-1/1">
             <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
           </div>
+          
+          <Message />
           
           <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
             <TextInput
@@ -54,9 +57,9 @@ const ContactForm = ({ message, onSubmit, onChange, saving, errors, recaptchaVer
             <input
               type="submit"
               disabled={!recaptchaVerified}
-              // value={saving ? 'Saving...' : 'Save'}
+      
               className="c-btn c-btn--primary"
-              value="submit"
+              value={saving ? 'Saving...' : 'Submit'}
               onClick={onSubmit}
             />
           </div>

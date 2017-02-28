@@ -1,8 +1,8 @@
 .c-about {
-  padding: 48px;
   background-color: $celestrial-blue;
   color: $white;
-  
+  padding: 48px;
+
   @include mq($from: mobile, $until: tablet) {
     padding: 24px;
   }

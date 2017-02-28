@@ -11,14 +11,14 @@ export function resetForm() {
 }
 
 export function saveMessage(message) {
-  return function (dispatch) {
+  return function save(dispatch) {
     dispatch(beginAjaxCall());
     return messageApi.saveMessage(message)
     .then(() => {
       dispatch(messageSuccess(message));
       dispatch(resetForm());
     }).catch((error) => {
-      console.log('error', error);
+      // console.log('error', error);
       dispatch(ajaxCallError(error));
       throw (error);
     });
