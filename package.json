@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production babel-node server/server.js --presets es2015,stage-2",
     "test": "NODE_ENV=test jest",
     "coverage": "istanbul cover mocha index",
-    "lint": "eslint client"
+    "lint": "eslint client/src/**.js client/**/**.jsx  server/**/**.js"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,13 @@
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.6.3",
-    "eslint-plugin-babel": "^4.0.1",
+    "eslint-plugin-babel": "^4.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.1",
+    "husky": "^0.13.1",
     "istanbul": "^0.4.5",
     "jest": "^19.0.2",
     "jest-cli": "^19.0.2",
@@ -82,13 +83,11 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "sass-mq": "^3.3.2",
-    "serve-favicon": "^2.4.0",
+    "serve-favicon": "^2.4.1",
     "validator": "^7.0.0",
     "xoauth2": "^1.2.0"
   },
   "config": {
-    "ghooks": {
-      
-    }
+    "ghooks": {}
   }
 }

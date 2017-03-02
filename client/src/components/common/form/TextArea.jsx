@@ -18,6 +18,7 @@ const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          aria-required="true"
         />
         {error && <div className="c-form__message c-form__message--alert u-margin-top-small">{error}</div>}
       </div>
