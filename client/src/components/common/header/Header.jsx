@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-
 import Arrows from './arrows';
 import Logo from './Logo';
 import SocialMedia from '../socialMedia/SocialMedia';
@@ -19,7 +18,7 @@ const Header = () => (
           <div className="o-flag">
             <div className="o-flag__body c-header__headline">
               <h1 className="c-header__title">Front End Development Consultancy
-                <br/>
+                <br />
                 Based in Essex / London</h1>
             </div>
           </div>

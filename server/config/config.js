@@ -46,7 +46,6 @@ const Config = {
 
 const getConfigByEnv = () => {
   const env = process.env.NODE_ENV || 'development';
-  console.log(env)
   return Config[env];
 };
 

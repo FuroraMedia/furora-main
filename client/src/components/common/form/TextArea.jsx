@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
+const TextInput = ({ name, label, onChange, value, error }) => {
   let wrapperClass = 'c-form__group u-margin-bottom';
   if (error && error.length > 0) {
-    wrapperClass += ' ' + 'c-form__group--error';
+    wrapperClass += ' c-form__group--error';
   }
 
   return (
@@ -15,12 +15,15 @@ const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
           rows="10"
           name={name}
           className="c-form__textarea"
-          placeholder={placeholder}
+          // placeholder={placeholder}
           value={value}
           onChange={onChange}
           aria-required="true"
         />
-        {error && <div className="c-form__message c-form__message--alert u-margin-top-small">{error}</div>}
+        {error && <div className="c-form__message c-form__message--alert u-margin-top-small">
+            {error}
+          </div>
+        }
       </div>
     </fieldset>
   );
@@ -30,9 +33,13 @@ TextInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
+  // placeholder: PropTypes.string,
+  value: PropTypes.string.isRequired,
   error: PropTypes.string,
+};
+
+TextInput.defaultProps = {
+  error: '',
 };
 
 export default TextInput;

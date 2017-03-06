@@ -1,6 +1,4 @@
-import path from 'path';
 import React from 'react';
-
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
 import { renderToStaticMarkup } from 'react-dom/server';
