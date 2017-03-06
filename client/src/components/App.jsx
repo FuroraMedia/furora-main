@@ -8,20 +8,18 @@ const propTypes = {
   children: PropTypes.object.isRequired,
 };
 
-class Layout extends React.Component {
-  render() {
-    return (
-      <div className="o-container">
-        <Header />
-        <main>
-          {this.props.children}
-        </main>
-        <ContactSection />
-        <Footer />
-      </div>
-    );
-  }
-}
+const Layout = props => (
+  <div className="o-container">
+    <Header />
+    <main>
+      {props.children}
+    </main>
+    <ContactSection />
+    <Footer />
+  </div>
+);
+
 
 Layout.propTypes = propTypes;
+
 export default Layout;

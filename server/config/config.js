@@ -19,7 +19,7 @@ const Config = {
       secret: process.env.GMAIL_CLIENT_SECRET,
       refresh_token: process.env.GMAIL_CLIENT_REFRESH_TOKEN,
       access_token: process.env.GMAIL_CLIENT_ACCESS_TOKEN,
-      token_file: process.env.GMAIL_CLIENT_TOKEN_FILE,
+      token_file: process.env.GMAIL_CLIENT_TOKEN_FILE || 'helper.json',
     },
   },
   production: {
@@ -39,13 +39,13 @@ const Config = {
       secret: process.env.GMAIL_CLIENT_SECRET,
       refresh_token: process.env.GMAIL_CLIENT_REFRESH_TOKEN,
       access_token: process.env.GMAIL_CLIENT_ACCESS_TOKEN,
-      token_file: process.env.GMAIL_CLIENT_TOKEN_FILE,
+      token_file: process.env.GMAIL_CLIENT_TOKEN_FILE || 'helper.json',
     },
   },
 };
 
 const getConfigByEnv = () => {
-  const env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+  const env = process.env.NODE_ENV || 'development';
   return Config[env];
 };
 

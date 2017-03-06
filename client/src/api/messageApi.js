@@ -21,8 +21,8 @@ class Api {
         Accept: 'application/json',
       },
       body: JSON.stringify(message),
-    })
-    .catch(err => console.log('error', err));
+    });
+    // .catch(err => console.log('error', err));
   }
 }
 export default Api;

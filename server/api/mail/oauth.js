@@ -1,15 +1,15 @@
 import fs from 'fs';
-import path from 'path';
-import config from '../../config/config';
-const serverConfig = config.getConfigByEnv();
-const tokenPath = path.join(__dirname, serverConfig.gmail.token_file);
 
-const getToken = () => {
-  const token = JSON.parse(fs.readFileSync(tokenPath, 'utf-8'));
+
+const getToken = (tokenPath) => {
+  const token = JSON.parse(fs.readFileSync(tokenPath, 'utf-8', (err) => {
+    if (err) throw err;
+  }));
+
   return token.access_token;
 };
 
-const storeToken = (token, expiry) => {
+const storeToken = (tokenPath, token, expiry) => {
   try {
     fs.mkdirSync('./');
   } catch (err) {

@@ -7,6 +7,11 @@ import ContactForm from './ContactForm';
 // import SuccessMsg from '../common/form/SuccessMessage';
 import * as formActions from '../../actions/formActions';
 
+const propTypes = {
+  mail: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+};
+
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -22,21 +27,19 @@ class ContactSection extends React.Component {
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
   }
-  
   componentWillReceiveProps(nextProps) {
     this.setState({ message: nextProps.mail });
   }
 
   updateMessageState(event) {
     const field = event.target.name;
-    let message = this.state.message;
+    const message = this.state.message;
     message[field] = event.target.value;
-    return this.setState({ message: message });
+    return this.setState({ message });
   }
-  
   courseFormIsValid() {
     let formIsValid = true;
-    let errors = {};
+    const errors = {};
     if (!this.state.message.name) {
       errors.name = 'A name must be required';
       formIsValid = false;
@@ -56,7 +59,7 @@ class ContactSection extends React.Component {
     if (this.state.recaptchaVerified === false) {
       formIsValid = false;
     }
-    this.setState({ errors: errors });
+    this.setState({ errors });
     return formIsValid;
   }
 
@@ -71,7 +74,7 @@ class ContactSection extends React.Component {
     .then(() => {
       this.setState({ saving: false });
     })
-    .catch((error) => {
+    .catch(() => {
       this.setState({ saving: false });
     });
   }
@@ -93,19 +96,14 @@ class ContactSection extends React.Component {
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
             />}
-
           </div>
-
         </div>
       </section>
     );
   }
 }
 
-ContactSection.propTypes = {
-  mail: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-}
+ContactSection.propTypes = propTypes;
 
 function mapStateToProps(state) {
   return {
@@ -115,7 +113,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(formActions, dispatch)
+    actions: bindActionCreators(formActions, dispatch),
   };
 }
 

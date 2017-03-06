@@ -1,21 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import About from '../about/About';
-import Services from '../services/Services';
+// import Services from '../services/Services';
 
-class HomePage extends React.Component {
+const HomePage = () => (
+  <div>
+    <About />
+  </div>
+);
 
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-        
-        <About />
-        {/* <Services /> */}
-      </div>
-    );
-  }
-}
 
 export default HomePage;

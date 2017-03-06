@@ -4,14 +4,7 @@ import ajaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
   formValues,
-  ajaxCallsInProgress
+  ajaxCallsInProgress,
 });
-
-// const rootReducer = (state, action) => {
-//   if (action.type === 'FORM_RESET') {
-//     state = undefined;
-//   }
-//   return appReducer(state, action);
-// };
 
 export default rootReducer;

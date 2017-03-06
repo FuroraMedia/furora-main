@@ -1,9 +1,8 @@
 import * as types from '../actions/actionTypes';
-// import initialState from './initialState';
 
 const initialState = {
   name: '', email: '', message: '', submitted: false,
-}
+};
 
 export default function contactForm(state = initialState, action) {
   switch (action.type) {
@@ -11,8 +10,8 @@ export default function contactForm(state = initialState, action) {
       return initialState;
     case types.FORM_SUBMIT_SUCCESS:
       return {
-        ...state, ...action.payload
-      }
+        ...state, ...action.payload,
+      };
     default:
       return state;
   }
