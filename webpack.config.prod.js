@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const Purify = require('purifycss-webpack-plugin');
+const Purify = require('purifycss-webpack');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const GLOBALS = {
@@ -22,12 +22,12 @@ module.exports = {
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new Purify({
-      basePath: path.join(__dirname, './client/src'),
-      paths: [
-        './server/views/index.ejs',
-        'components/**/*.jsx',
-      ],
-      resolveExtensions: ['.html', '.js', '.jsx'],
+      paths: ['./client/src/components'],
+      // paths: [
+      //   './server/views/index.ejs',
+      //   'components/**/*.jsx',
+      // ],
+      // resolveExtensions: ['.html', '.js', '.jsx'],
       purifyOptions: {
         minify: true,
         info: true,

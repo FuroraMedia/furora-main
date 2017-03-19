@@ -3,7 +3,7 @@ React Redux Progressive + Universal web app Portfolio site, powered by node + ex
 
 ##Install dependencies
 ```js
-npm install 
+yarn install 
 ```
 
 ##Run
