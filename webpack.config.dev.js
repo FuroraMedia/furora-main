@@ -23,12 +23,11 @@ module.exports = {
   },
   module: {
     rules: [
-      
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
-        loader: "eslint-loader",
-        exclude: /node_modules/
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,

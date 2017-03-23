@@ -24,7 +24,7 @@ const Config = {
   },
   production: {
     path: '../../client/dist',
-    port: process.env.PORT || 80,
+    port: process.env.PORT || 8080,
     cacheTime: process.env.CACHE_TIME,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,
