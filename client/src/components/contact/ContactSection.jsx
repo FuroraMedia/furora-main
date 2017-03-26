@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import validator from 'validator';
 
 import ContactForm from './ContactForm';
-// import SuccessMsg from '../common/form/SuccessMessage';
+import SuccessMsg from '../common/form/Message';
 import * as formActions from '../../actions/formActions';
 
 const propTypes = {
@@ -21,6 +21,8 @@ class ContactSection extends React.Component {
       saving: false,
       showForm: true,
       recaptchaVerified: false,
+      successMsg: false,
+      errorMsg: false,
     };
 
     this.submitForm = this.submitForm.bind(this);
@@ -73,8 +75,10 @@ class ContactSection extends React.Component {
     this.props.actions.saveMessage(this.state.message)
     .then(() => {
       this.setState({ saving: false });
+      this.setState({ successMessage: true });
     })
     .catch(() => {
+      this.setState({ failMsg: true });
       this.setState({ saving: false });
     });
   }
@@ -95,8 +99,10 @@ class ContactSection extends React.Component {
               saving={this.state.saving}
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
+              successMessage={this.state.successMessage}
             />}
           </div>
+          <SuccessMsg success={this.state.successMsg} error={this.state.errorMsg} />
         </div>
       </section>
     );
