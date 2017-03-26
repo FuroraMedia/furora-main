@@ -17,7 +17,7 @@ const expressConfig = (app) => {
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
-  if (process.env.HTTPS_REDIRECT) {
+  if (process.env.HTTPS_REDIRECT === true) {
     app.use(forceSSL);
   }
   app.use('/static', express.static(path.join(__dirname, '../../client/dist'), {
