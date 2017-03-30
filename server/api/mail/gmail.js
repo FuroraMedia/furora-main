@@ -30,12 +30,11 @@ transporter.on('token', (token) => {
 });
 
 const gmail = (req, res) => {
-
+  
   if (serverConfig.gmail.isActive) {
     if (req.body.name === '' || req.body.email === '' || req.body.message === '') {
       return res.status(401).json({ message: 'All fields are required' });
     }
-
     transporter.sendMail({
       from: req.body.name + req.body.email,
       to: serverConfig.gmail.client_user,
@@ -44,10 +43,10 @@ const gmail = (req, res) => {
     }, (err, info) => {
       if (err) {
         console.log(err);
-        res.send('error');
+        return res.status(400).json({ message: 'Something went wrong, Message hasnt been sent' });
       } else {
         console.log('Message sent', info);
-        res.end('sent');
+        return res.status(200).json({ message: 'Thank you for your message, We hope to respond asap' });
       }
     });
   } else {

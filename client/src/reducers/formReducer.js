@@ -1,14 +1,16 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-  name: '', email: '', message: '', submitted: false,
+  name: '',
+  email: '',
+  message: '',
 };
 
-export default function contactForm(state = initialState, action) {
+export default function formValues(state = initialState, action) {
   switch (action.type) {
     case types.FORM_RESET:
       return initialState;
-    case types.FORM_SUBMIT_SUCCESS:
+    case types.FORM_SUBMIT:
       return {
         ...state, ...action.payload,
       };

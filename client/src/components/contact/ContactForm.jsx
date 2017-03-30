@@ -2,6 +2,7 @@ import React from 'react';
 import Recaptcha from 'react-gcaptcha';
 import TextInput from '../common/form/TextInput';
 import TextArea from '../common/form/TextArea';
+import Message from '../common/form/Message';
 
 const propTypes = {
   message: React.PropTypes.object.isRequired,
@@ -11,11 +12,13 @@ const propTypes = {
   errors: React.PropTypes.object,
   recaptchaVerified: React.PropTypes.bool.isRequired,
   recaptchaVerifiedCallback: React.PropTypes.func.isRequired,
+  formValidation: React.PropTypes.object,
 };
 
 const defaultProps = {
   saving: false,
   errors: {},
+  formValidation: {},
 };
 
 const ContactForm = ({
@@ -26,12 +29,15 @@ const ContactForm = ({
   errors,
   recaptchaVerified,
   recaptchaVerifiedCallback,
+  formValidation,
 }) => (
   <form className="c-form" role="form">
+    {saving && <div>Save</div>}
     <div className="o-layout">
       <div className="o-layout__item u-1/1">
         <h3 className="u-margin-bottom">For Quotes and avalability please fill form below.</h3>
       </div>
+      <Message formValidation={formValidation} />
       <div className="o-layout__item u-1/1 u-1/2@tablet u-1/2@desktop">
         <TextInput
           name="name"

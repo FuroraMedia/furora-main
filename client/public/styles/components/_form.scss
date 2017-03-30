@@ -1,5 +1,18 @@
 @include block(c-form) {
   padding: 48px;
+  
+  @include element(dialog) {
+    color: $white;
+    
+    @include modifier(success) {
+      background-color: $success-color;
+    }
+    
+    @include modifier(error) {
+      background-color: $error-color;
+    }
+  }
+  
    @include element(group){
     @include element(input) {
       width: 100%;

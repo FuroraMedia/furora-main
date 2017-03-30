@@ -5,7 +5,6 @@ import routes from './routes';
 import store from './store';
 import './public/styles/shared.scss';
 
-
 const App = () => (
   <Provider store={store} key="provider">
     <Router history={browserHistory} routes={routes} />

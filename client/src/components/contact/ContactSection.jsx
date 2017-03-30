@@ -1,28 +1,30 @@
+// TODO: de-localize languages and messages
+
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import validator from 'validator';
 
 import ContactForm from './ContactForm';
-import SuccessMsg from '../common/form/Message';
 import * as formActions from '../../actions/formActions';
 
 const propTypes = {
   mail: PropTypes.object.isRequired,
+  formValidation: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 };
 
 class ContactSection extends React.Component {
   constructor(props, context) {
     super(props, context);
+
     this.state = {
       message: Object.assign({}, this.props.mail),
       errors: {},
       saving: false,
       showForm: true,
       recaptchaVerified: false,
-      successMsg: false,
-      errorMsg: false,
+      formValidation: Object.assign({}, this.props.formValidation),
     };
 
     this.submitForm = this.submitForm.bind(this);
@@ -31,6 +33,7 @@ class ContactSection extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ message: nextProps.mail });
+    this.setState({ formValidation: nextProps.formValidation });
   }
 
   updateMessageState(event) {
@@ -39,7 +42,7 @@ class ContactSection extends React.Component {
     message[field] = event.target.value;
     return this.setState({ message });
   }
-  courseFormIsValid() {
+  contactFormIsValid() {
     let formIsValid = true;
     const errors = {};
     if (!this.state.message.name) {
@@ -47,7 +50,7 @@ class ContactSection extends React.Component {
       formIsValid = false;
     }
     if (!this.state.message.email) {
-      errors.email = 'A email address is required';
+      errors.email = 'An email address is required';
       formIsValid = false;
     }
     if (this.state.message.email && !validator.isEmail(this.state.message.email)) {
@@ -68,17 +71,22 @@ class ContactSection extends React.Component {
   submitForm(event) {
     event.preventDefault();
 
-    if (!this.courseFormIsValid()) {
+    if (!this.contactFormIsValid()) {
+      this.setState({ formValidation: {
+        show: true,
+        submit: false,
+        success: false,
+        message: 'Please Enter All Required Fields Below',
+      },
+      });
       return;
     }
     this.setState({ saving: true });
     this.props.actions.saveMessage(this.state.message)
     .then(() => {
       this.setState({ saving: false });
-      this.setState({ successMessage: true });
     })
     .catch(() => {
-      this.setState({ failMsg: true });
       this.setState({ saving: false });
     });
   }
@@ -99,10 +107,9 @@ class ContactSection extends React.Component {
               saving={this.state.saving}
               recaptchaVerified={this.state.recaptchaVerified}
               recaptchaVerifiedCallback={this.verifyCallback}
-              successMessage={this.state.successMessage}
+              formValidation={this.state.formValidation}
             />}
           </div>
-          <SuccessMsg success={this.state.successMsg} error={this.state.errorMsg} />
         </div>
       </section>
     );
@@ -114,6 +121,7 @@ ContactSection.propTypes = propTypes;
 function mapStateToProps(state) {
   return {
     mail: state.formValues,
+    formValidation: state.formValidation,
   };
 }
 
