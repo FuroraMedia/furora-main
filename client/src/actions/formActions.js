@@ -14,16 +14,16 @@ export function formSubmitFail(text) {
 }
 
 export function missingFields(text) {
-  return { type: types.FORM_SUBMIT_MISSING, text };
+  return { type: types.FORM_SUBMIT_MISSING_FIELDS, text };
 }
 
 export function resetForm() {
   return { type: types.FORM_RESET };
 }
 
-export function formValidationFields() {
+export function requiredFields(text) {
   return function save(dispatch) {
-    dispatch(missingFields());
+    dispatch(missingFields(text));
   };
 }
 
@@ -33,12 +33,11 @@ export function saveMessage(message) {
     dispatch(formSubmit(message));
     return messageApi.saveMessage(message)
     .then((res) => {
-      console.log('res', res)
-      dispatch(formSubmitSuccess(res));
+      dispatch(formSubmitSuccess(res.message));
       dispatch(resetForm());
     }).catch((err) => {
-      console.log('error', err)
-      dispatch(formSubmitFail(err));
+      // console.log('error', err)
+      dispatch(formSubmitFail(err.message));
       dispatch(ajaxCallError(err));
       throw (err);
     });

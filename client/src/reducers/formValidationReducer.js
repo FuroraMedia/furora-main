@@ -14,21 +14,21 @@ export default function formValidation(state = initialState, action) {
         show: true,
         submit: true,
         success: true,
-        data: action.text,
+        message: action.text,
       });
     case types.FORM_SUBMIT_FAIL:
       return Object.assign({}, state, {
         show: true,
         submit: true,
         success: false,
-        data: action.text,
+        message: action.text,
       });
-    case types.FORM_SUBMIT_MISSING:
+    case types.FORM_SUBMIT_MISSING_FIELDS:
       return Object.assign({}, state, {
         show: true,
         submit: false,
         success: false,
-        data: action.text,
+        message: action.text,
       });
     default:
       return state;

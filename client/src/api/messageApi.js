@@ -7,7 +7,6 @@ const headers = {
 
 const checkStatus = (response) => {
   if (response.status >= 200 && response.status < 300) {
-    console.log('response', response)
     return response;
   } else {
     const error = new Error(response.statusText);
@@ -26,7 +25,7 @@ class Api {
       body: JSON.stringify(message),
     })
     .then(checkStatus)
-    .then(parseJSON)
+    .then(parseJSON);
   }
 }
 export default Api;

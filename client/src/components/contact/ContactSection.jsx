@@ -1,3 +1,5 @@
+// TODO: de-localize languages and messages
+
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -23,7 +25,6 @@ class ContactSection extends React.Component {
       showForm: true,
       recaptchaVerified: false,
       formValidation: Object.assign({}, this.props.formValidation),
-      // validationMessage: Object.assign({}, this.props)
     };
 
     this.submitForm = this.submitForm.bind(this);
@@ -31,10 +32,8 @@ class ContactSection extends React.Component {
     this.verifyCallback = this.verifyCallback.bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    // this.setState({ message: nextProps.mail });
+    this.setState({ message: nextProps.mail });
     this.setState({ formValidation: nextProps.formValidation });
-
-    console.log('next', nextProps)
   }
 
   updateMessageState(event) {
@@ -51,7 +50,7 @@ class ContactSection extends React.Component {
       formIsValid = false;
     }
     if (!this.state.message.email) {
-      errors.email = 'A email address is required';
+      errors.email = 'An email address is required';
       formIsValid = false;
     }
     if (this.state.message.email && !validator.isEmail(this.state.message.email)) {
@@ -62,9 +61,9 @@ class ContactSection extends React.Component {
       errors.message = 'A message is required';
       formIsValid = false;
     }
-    // if (this.state.recaptchaVerified === false) {
-    //   formIsValid = false;
-    // }
+    if (this.state.recaptchaVerified === false) {
+      formIsValid = false;
+    }
     this.setState({ errors });
     return formIsValid;
   }
@@ -73,6 +72,13 @@ class ContactSection extends React.Component {
     event.preventDefault();
 
     if (!this.contactFormIsValid()) {
+      this.setState({ formValidation: {
+        show: true,
+        submit: false,
+        success: false,
+        message: 'Please Enter All Required Fields Below',
+      },
+      });
       return;
     }
     this.setState({ saving: true });
@@ -111,7 +117,6 @@ class ContactSection extends React.Component {
 }
 
 ContactSection.propTypes = propTypes;
-
 
 function mapStateToProps(state) {
   return {
