@@ -30,26 +30,25 @@ transporter.on('token', (token) => {
 });
 
 const gmail = (req, res) => {
-
   if (serverConfig.gmail.isActive) {
     if (req.body.name === '' || req.body.email === '' || req.body.message === '') {
       return res.status(401).json({ message: 'All fields are required' });
     }
-
-    transporter.sendMail({
-      from: req.body.name + req.body.email,
-      to: serverConfig.gmail.client_user,
-      subject: `FURORA-FORM contact from ${req.body.name} @ ${req.body.email}`,
-      text: req.body.message,
-    }, (err, info) => {
-      if (err) {
-        console.log(err);
-        res.send('error');
-      } else {
-        console.log('Message sent', info);
-        res.end('sent');
-      }
-    });
+    res.status(200).json({ message: 'Thank you for the mail' });
+    // transporter.sendMail({
+    //   from: req.body.name + req.body.email,
+    //   to: serverConfig.gmail.client_user,
+    //   subject: `FURORA-FORM contact from ${req.body.name} @ ${req.body.email}`,
+    //   text: req.body.message,
+    // }, (err, info) => {
+    //   if (err) {
+    //     console.log(err);
+    //     res.send('error');
+    //   } else {
+    //     console.log('Message sent', info);
+    //     res.end('sent');
+    //   }
+    // });
   } else {
     res.end('gmail is currently disabled');
   }

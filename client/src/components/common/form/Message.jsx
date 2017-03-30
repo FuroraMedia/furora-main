@@ -1,31 +1,34 @@
 import React, { PropTypes } from 'react';
 
-const SuccessMsg = ({ success, error }) => {
-  let wrapperClass = 'o-layout__item u-1/1';
-  if (error && error.length > 0) {
-    wrapperClass += ' c-form__group--error';
+const Message = ({ formValidation }) => {
+  let wrapperClass = 'o-layout__item u-1/1 c-form__dialog u-margin-bottom';
+  
+  if (formValidation.success === true) {
+    wrapperClass += ' c-form__dialog--success';
+  } else {
+    wrapperClass += ' c-form__dialog--error';
   }
+  // if (error && error.length > 0) {
+  //   wrapperClass += ' c-form__group--error';
+  // }
+
   return (
     <div>
-      {success && <div className={wrapperClass}>
-        <p>Thank you, we will try to respond to your query asap</p>
-        </div>
-      }
-      {error && <div className={wrapperClass}>
-        <p>Sorry Something has gone wrong</p>
-        </div>
-      }
+      {formValidation.show &&
+      <div className={wrapperClass}>
+        <div className="o-block u-padding">{formValidation.message || 'Something Went Wrong'}</div>
+      </div>}
     </div>
   );
 };
-SuccessMsg.propTypes = {
-  success: PropTypes.bool,
-  error: PropTypes.bool,
+Message.propTypes = {
+  formValidation: PropTypes.object,
+  // error: PropTypes.object,
 };
 
-SuccessMsg.defaultProps = {
-  success: false,
-  error: false,
+Message.defaultProps = {
+  formValidation: {},
+  // error: {},
 };
 
-export default SuccessMsg;
+export default Message;

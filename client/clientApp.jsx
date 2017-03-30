@@ -5,6 +5,7 @@ import routes from './routes';
 import store from './store';
 import './public/styles/shared.scss';
 
+console.log(store.getState())
 
 const App = () => (
   <Provider store={store} key="provider">
