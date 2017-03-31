@@ -10,8 +10,7 @@
     "test": "NODE_ENV=test jest",
     "coverage": "istanbul cover mocha index",
     "lint": "eslint client/src/**.js client/**/**.jsx  server/**/**.js",
-    "precommit": "npm run lint",
-    "prepush": "npm run lint"
+    "precommit": "npm-run-all lint build",
   },
   "repository": {
     "type": "git",
@@ -42,7 +41,6 @@
     "jest-cli": "^19.0.2",
     "morgan": "^1.8.1",
     "node-sass": "^4.5.2",
-    "normalize": "^0.3.1",
     "normalize.css": "^6.0.0",
     "purifycss-webpack": "^0.5.0",
     "redux-immutable-state-invariant": "^2.0.0",
