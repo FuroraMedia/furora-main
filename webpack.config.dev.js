@@ -6,7 +6,7 @@ module.exports = {
   target: 'web',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './browserEntry.jsx',
+    './ClientApp.jsx',
   ],
   output: {
     path: path.join(__dirname, '/client/dist'),

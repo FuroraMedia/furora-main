@@ -4,22 +4,22 @@ import Footer from './common/footer/Footer';
 
 import ContactSection from './contact/ContactSection';
 
-const propTypes = {
-  children: PropTypes.object.isRequired,
-};
+// const propTypes = {
+//   children: PropTypes.object.isRequired,
+// };
 
-const Layout = props => (
+const Layout = () => (
   <div className="o-container">
     <Header />
-    <main>
+    {/* <main>
       {props.children}
-    </main>
+    </main> */}
     <ContactSection />
     <Footer />
   </div>
 );
 
 
-Layout.propTypes = propTypes;
+// Layout.propTypes = propTypes;
 
 export default Layout;

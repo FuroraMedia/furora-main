@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Arrows from './arrows';
 import Logo from './Logo';
 import SocialMedia from '../socialMedia/SocialMedia';
@@ -9,10 +9,10 @@ const Header = () => (
     <div className="o-wrapper c-header__container">
       <div className="o-layout">
         <nav className="o-layout__item u-1/1 c-nav">
-          <Link to="/" className="c-nav__home-link" role="link" title="Furora Media Ltd">
+          {/* <Link to="/" className="c-nav__home-link" role="link" title="Furora Media Ltd">
             <Logo />
-          </Link>
-          <SocialMedia />
+          </Link> */}
+           <SocialMedia />
         </nav>
         <div className="o-layout__item u-1/1">
           <div className="o-flag">

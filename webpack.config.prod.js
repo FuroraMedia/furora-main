@@ -12,7 +12,7 @@ const GLOBALS = {
 module.exports = {
   context: path.join(__dirname, '/client'),
   target: 'web',
-  entry: ['./browserEntry.jsx'],
+  entry: ['./ClientApp.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
     publicPath: '/static/',

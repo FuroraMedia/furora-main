@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link, IndexLink } from 'react-router';
 
 const Footer = () => (
   <footer className="c-footer">
