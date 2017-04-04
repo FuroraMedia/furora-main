@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Recaptcha from 'react-gcaptcha';
 import TextInput from '../common/form/TextInput';
 import TextArea from '../common/form/TextArea';
 import Message from '../common/form/Message';
 
 const propTypes = {
-  message: React.PropTypes.object.isRequired,
-  onSubmit: React.PropTypes.func.isRequired,
-  onChange: React.PropTypes.func.isRequired,
-  saving: React.PropTypes.bool,
-  errors: React.PropTypes.object,
-  recaptchaVerified: React.PropTypes.bool.isRequired,
-  recaptchaVerifiedCallback: React.PropTypes.func.isRequired,
-  formValidation: React.PropTypes.object,
+  message: PropTypes.object.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  saving: PropTypes.bool,
+  errors: PropTypes.object,
+  recaptchaVerified: PropTypes.bool.isRequired,
+  recaptchaVerifiedCallback: PropTypes.func.isRequired,
+  formValidation: PropTypes.object,
 };
 
 const defaultProps = {

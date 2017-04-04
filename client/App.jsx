@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-// import { BrowserRouter as Router } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import Layout from './src/components/Layout';
-import store from './Store';
-// import routes from './routes';
+import Store from './Store';
+import Routes from './Routes';
+// const propTypes = {
+//   children: PropTypes.object.isRequired,
+// };
+
 import './public/styles/shared.scss';
 
 const App = () => (
-  <Provider store={store} key="provider">
-    <Layout />
+  <Provider store={Store} key="provider">
+    <Layout>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </Layout>
   </Provider>
 );
+
+
+// Layout.propTypes = propTypes;
 
 export default App;
