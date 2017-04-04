@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 import Arrows from './arrows';
 import Logo from './Logo';
 import SocialMedia from '../socialMedia/SocialMedia';
