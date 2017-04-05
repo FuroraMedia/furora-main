@@ -30,11 +30,11 @@
       outline: 0;
       border: none;
       border-radius: 0;
-      box-shadow: 0;
+      box-shadow: none;
       background-image: repeating-linear-gradient(to bottom, transparent, transparent 38px, rgba(0,0,0,0.15) 39px);
+      font-size: 100%;
     }
     
-  
     @include modifier(error) {
        @include element(input){
         @include error($error-color);
@@ -43,7 +43,7 @@
          @include error($error-color);
       }
       @include element(textarea) {
-        background-image: repeating-linear-gradient(to bottom, transparent, transparent 38px, $error-color 39px)
+        background-image: repeating-linear-gradient(to bottom, transparent, transparent 38px, $error-color 39px);
       }
     }
   }

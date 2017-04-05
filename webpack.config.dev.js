@@ -1,12 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
+const GLOBALS = {
+  'process.env.BROWSER': JSON.stringify(true),
+};
+
 module.exports = {
   context: path.join(__dirname, '/client'),
   target: 'web',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './browserEntry.jsx',
+    './ClientApp.jsx',
   ],
   output: {
     path: path.join(__dirname, '/client/dist'),
@@ -14,6 +19,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],

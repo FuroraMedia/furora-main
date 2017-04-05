@@ -1,30 +1,38 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { RouterContext, match } from 'react-router';
-import { renderToStaticMarkup } from 'react-dom/server';
-
-import store from '../../client/store';
-import myRoutes from '../../client/routes';
+import ReactDOMServer from 'react-dom/server';
+import ServerApp from '../../client/App';
 
 const reactRoutes = (app) => {
+  // app.use((req, res) => {
+  //   const context = {};
+  //   const body = ReactDOMServer.renderToString(React.createElement(StaticRouter, {
+  //     location: req.url,
+  //     context,
+  //   }, React.createElement(App)));
+  //   res.status(200).render('index', { body });
+  //   res.end();
+  // });
   app.use((req, res) => {
-    match({ routes: myRoutes, location: req.url }, (err, redirect, props) => {
-      if (err) {
-        res.status(500).send(err.message);
-      } else if (redirect) {
-        res.redirect(302, redirect.pathname + redirect.search);
-      } else if (props) {
-        const body = renderToStaticMarkup(
-        React.createElement(Provider, { store },
-          React.createElement(RouterContext, props),
-        ),
-      );
-        res.status(200).render('index', { body });
-      } else {
-        res.status(404).send('Not found');
-      }
-    });
+    const context = {};
+    // const body = ReactDOMServer.renderToString(
+    //   <StaticRouter location={req.url} context={context}>
+    //     <App />
+    //   </StaticRouter>
+    // );
+    const body = ReactDOMServer.renderToString(React.createElement(ServerApp, {
+      isServerRoute: true,
+      reqUrl: req.url,
+      context,
+    }));
+
+    // context.url will contain the URL to redirect to if a <Redirect> was used
+    if (context.url) {
+      res.writeHead(302, { Location: context.url });
+      res.end();
+    } else {
+      res.status(200).render('index', { body });
+      res.end();
+    }
   });
 };
-
 export default reactRoutes;

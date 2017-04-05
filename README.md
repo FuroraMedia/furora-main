@@ -18,7 +18,7 @@ npm run build
 
 ##Dev
 ```js
-npm run client
+npm run dev
 ```
 
 ##License

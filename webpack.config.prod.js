@@ -7,12 +7,13 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
+  'process.env.BROWSER': JSON.stringify(true),
 };
 
 module.exports = {
   context: path.join(__dirname, '/client'),
   target: 'web',
-  entry: ['./browserEntry.jsx'],
+  entry: ['./ClientApp.jsx'],
   output: {
     path: path.join(__dirname, '/client/dist'),
     publicPath: '/static/',

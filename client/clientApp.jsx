@@ -1,15 +1,6 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-import routes from './routes';
-import store from './store';
-import './public/styles/shared.scss';
+import { render } from 'react-dom';
 
-const App = () => (
-  <Provider store={store} key="provider">
-    <Router history={browserHistory} routes={routes} />
-  </Provider>
-);
+import App from './App';
 
-
-export default App;
+render(<App isServerRoute={false} />, document.getElementById('app'));

@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react';
 import Header from './common/header/Header';
 import Footer from './common/footer/Footer';
-
 import ContactSection from './contact/ContactSection';
 
 const propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.array.isRequired,
 };
 
 const Layout = props => (
@@ -18,7 +17,6 @@ const Layout = props => (
     <Footer />
   </div>
 );
-
 
 Layout.propTypes = propTypes;
 
