@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ServerApp from '../../client/ServerApp';
+import ServerApp from '../../client/App';
 
 const reactRoutes = (app) => {
   // app.use((req, res) => {
@@ -20,6 +20,7 @@ const reactRoutes = (app) => {
     //   </StaticRouter>
     // );
     const body = ReactDOMServer.renderToString(React.createElement(ServerApp, {
+      isServerRoute: true,
       reqUrl: req.url,
       context,
     }));

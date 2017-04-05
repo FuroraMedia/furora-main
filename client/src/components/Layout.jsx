@@ -4,7 +4,7 @@ import Footer from './common/footer/Footer';
 import ContactSection from './contact/ContactSection';
 
 const propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.array.isRequired,
 };
 
 const Layout = props => (

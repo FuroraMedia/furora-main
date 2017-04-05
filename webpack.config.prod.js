@@ -7,6 +7,7 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
+  'process.env.BROWSER': JSON.stringify(true),
 };
 
 module.exports = {

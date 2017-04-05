@@ -1,6 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
+const GLOBALS = {
+  'process.env.BROWSER': JSON.stringify(true),
+};
+
 module.exports = {
   context: path.join(__dirname, '/client'),
   target: 'web',
@@ -14,6 +19,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],

@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.prod.js -p",
-    "client": "babel-node server/devserver.js --presets es2015,stage-3 --inspect",
-    "start": "NODE_ENV=production PORT=8080 babel-node server/server.js --presets es2015,stage-3",
+    "dev": "babel-node server/devserver.js --presets es2015,stage-3 --inspect",
+    "dev-final": "NODE_ENV=production PORT=8080 ENV=node babel-node server/server.js --presets es2015,stage-3",
+    "start": "babel-node server/server.js --presets es2015,stage-3",
     "test": "NODE_ENV=test jest",
     "coverage": "istanbul cover mocha index",
     "lint": "eslint client/src/**.js client/**/**.jsx  server/**/**.js",
