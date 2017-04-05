@@ -18,9 +18,11 @@ const defaultProps = {
   context: {},
 };
 
+/* eslint-disable global-require */
 if (process.env.BROWSER) {
   require('./public/styles/shared.scss');
 }
+/* eslint-enable global-require */
 
 const App = ({
   isServerRoute,
