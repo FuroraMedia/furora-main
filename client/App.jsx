@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router';
 import Layout from './src/components/Layout';
-import Store from './Store';
-import Routes from './Routes';
+import Store from './store';
+import Routes from './routes';
 
 const propTypes = {
   isServerRoute: PropTypes.bool.isRequired,
