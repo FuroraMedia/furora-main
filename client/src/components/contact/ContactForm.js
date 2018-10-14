@@ -1,8 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Recaptcha from 'react-gcaptcha';
-import TextInput from '../common/form/TextInput';
-import TextArea from '../common/form/TextArea';
-import Message from '../common/form/Message';
+import TextInput from '../common/form/textInput';
+import TextArea from '../common/form/textArea';
+import Message from '../common/form/message';
 
 const propTypes = {
   message: PropTypes.object.isRequired,
@@ -31,7 +32,7 @@ const ContactForm = ({
   recaptchaVerifiedCallback,
   formValidation,
 }) => (
-  <form className="c-form" role="form">
+  <form className="c-form">
     {saving && <div>Save</div>}
     <div className="o-layout">
       <div className="o-layout__item u-1/1">

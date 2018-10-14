@@ -1,5 +1,5 @@
 import React from 'react';
-import About from '../about/About';
+import About from '../about';
 // import Services from '../services/Services';
 
 const HomePage = () => (

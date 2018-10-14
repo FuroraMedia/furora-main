@@ -4,7 +4,7 @@ const Config = {
   },
   development: {
     path: '../../client/public',
-    port: process.env.PORT || 7000,
+    port: process.env.PORT || 8888,
     cacheTime: process.env.CACHE_TIME,
     mail: {
       isActive: process.env.MAIL_ACTIVE_STATUS,

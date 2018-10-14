@@ -1,5 +1,6 @@
-
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router';
@@ -12,6 +13,11 @@ const propTypes = {
   reqUrl: PropTypes.string,
   context: PropTypes.object,
 };
+// type Props = {
+//   isServerRoute: boolean,
+//   reqUrl: string,
+//   context: object,
+// };
 
 const defaultProps = {
   reqUrl: '',

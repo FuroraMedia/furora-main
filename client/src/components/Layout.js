@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
-import Header from './common/header/Header';
-import Footer from './common/footer/Footer';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from './common/header';
+import Footer from './common/footer';
 import ContactSection from './contact/ContactSection';
 
 const propTypes = {
@@ -19,5 +20,4 @@ const Layout = props => (
 );
 
 Layout.propTypes = propTypes;
-
 export default Layout;
