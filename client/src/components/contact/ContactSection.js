@@ -1,11 +1,13 @@
 // TODO: de-localize languages and messages
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import validator from 'validator';
 
-import ContactForm from './ContactForm';
+import ContactForm from './contactForm';
 import * as formActions from '../../actions/formActions';
 
 const propTypes = {

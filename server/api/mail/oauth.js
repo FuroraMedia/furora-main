@@ -1,6 +1,4 @@
 import fs from 'fs';
-
-
 const getToken = (tokenPath) => {
   const token = JSON.parse(fs.readFileSync(tokenPath, 'utf-8', (err) => {
     if (err) throw err;

@@ -1,17 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 
-
 const GLOBALS = {
   'process.env.BROWSER': JSON.stringify(true),
 };
 
 module.exports = {
+  mode: 'development',
   context: path.join(__dirname, '/client'),
   target: 'web',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './ClientApp.jsx',
+    './clientApp.js',
   ],
   output: {
     path: path.join(__dirname, '/client/dist'),
@@ -19,6 +19,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
@@ -43,23 +44,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015', 'react'],
-            },
-          },
-        ],
-      },
-      {
         test: /\.js?$/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              presets: ['es2015', 'react'],
+              presets: ['@babel/preset-env'],
             },
           },
         ],

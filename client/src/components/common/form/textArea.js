@@ -1,6 +1,9 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const TextInput = ({ name, label, onChange, value, error }) => {
+const TextInput = ({
+  name, label, onChange, value, error,
+}) => {
   let wrapperClass = 'c-form__group u-margin-bottom';
   if (error && error.length > 0) {
     wrapperClass += ' c-form__group--error';
@@ -22,7 +25,7 @@ const TextInput = ({ name, label, onChange, value, error }) => {
         />
         {error && <div className="c-form__message c-form__message--alert u-margin-top-small">
             {error}
-          </div>
+        </div>
         }
       </div>
     </fieldset>

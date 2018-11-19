@@ -11,21 +11,23 @@ const GLOBALS = {
 };
 
 module.exports = {
+  mode: 'production',
   context: path.join(__dirname, '/client'),
   target: 'web',
-  entry: ['./ClientApp.jsx'],
+  entry: ['./ClientApp.js'],
   output: {
     path: path.join(__dirname, '/client/dist'),
     publicPath: '/static/',
     filename: 'bundle.js',
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
     new Purify({
-      paths: glob.sync(path.join(__dirname, '/client/src/components/**/*.jsx')),
-      moduleExtensions: ['.html', '.js', '.jsx'],
+      paths: glob.sync(path.join(__dirname, '/client/src/components/**/*.js')),
+      moduleExtensions: ['.html', '.js'],
       purifyOptions: {
         minify: true,
         info: true,
@@ -52,7 +54,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js'],
     modules: ['node_modules'],
   },
 
@@ -70,23 +72,13 @@ module.exports = {
         }),
       },
       {
-        test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015', 'react'],
-            },
-          },
-        ],
-      },
-      {
         test: /\.js?$/,
         use: [
           {
             loader: 'babel-loader',
             options: {
-              presets: ['es2015', 'react'],
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              plugins: ['transform-object-assign'],
             },
           },
         ],

@@ -49,7 +49,8 @@
 // Utilities
 @import 'node_modules/inuitcss/utilities/utilities.widths';
 @import 'node_modules/inuitcss/utilities/utilities.headings';
-// @import 'node_modules/inuitcss/utilities/utilities.print';
 @import 'node_modules/inuitcss/utilities/utilities.hide';
-// @import 'utilities/utilities.hide.scss';
-@import 'node_modules/inuitcss/utilities/utilities.spacing';
+@import 'node_modules/inuitcss/utilities/utilities.print';
+@import 'node_modules/inuitcss/utilities/utilities.spacings';
+@import 'node_modules/inuitcss/utilities/utilities.responsive-spacings';
+@import 'node_modules/inuitcss/utilities/utilities.widths';
