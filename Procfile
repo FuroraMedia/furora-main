@@ -1,1 +1,1 @@
-web: babel-node server/server.js --presets es2015,stage-3
+web: babel-node server/server.js env
