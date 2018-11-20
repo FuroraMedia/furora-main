@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import ServerApp from '../../client/app';
+import ServerApp from '../../client/main';
 
 const reactRoutes = (app) => {
   app.use((req, res) => {
