@@ -11,7 +11,7 @@ import Routes from './routes';
 const propTypes = {
   isServerRoute: PropTypes.bool.isRequired,
   reqUrl: PropTypes.string,
-  context: PropTypes.object,
+  context: PropTypes.object
 };
 // type Props = {
 //   isServerRoute: boolean,
@@ -33,7 +33,7 @@ if (process.env.BROWSER) {
 const App = ({
   isServerRoute,
   reqUrl,
-  context,
+  context
 }) => (
   <Provider store={Store} key="provider">
     <Layout>
