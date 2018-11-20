@@ -7,4 +7,5 @@ npm-debug.log
 .env
 todo.txt
 .editorconfig
+server/api/mail/helper.json
 _test_
