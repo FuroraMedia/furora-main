@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import validator from 'validator';
 
-import ContactForm from './contactForm';
+import ContactForm from './form';
 import * as formActions from '../../actions/formActions';
 
 const propTypes = {
@@ -33,6 +33,7 @@ class ContactSection extends React.Component {
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ message: nextProps.mail });
     this.setState({ formValidation: nextProps.formValidation });
@@ -44,6 +45,7 @@ class ContactSection extends React.Component {
     message[field] = event.target.value;
     return this.setState({ message });
   }
+
   contactFormIsValid() {
     let formIsValid = true;
     const errors = {};
@@ -92,6 +94,7 @@ class ContactSection extends React.Component {
       this.setState({ saving: false });
     });
   }
+
   verifyCallback() {
     return this.setState({ recaptchaVerified: true });
   }

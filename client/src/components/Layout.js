@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './common/header';
 import Footer from './common/footer';
-import ContactSection from './contact/ContactSection';
+import ContactSection from './contact/formSection';
 
 const propTypes = {
   children: PropTypes.array.isRequired,
