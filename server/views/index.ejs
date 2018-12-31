@@ -8,7 +8,7 @@
   <%_ if (process.env.NODE_ENV === 'production') { _%>
   <% include ./meta-tags.ejs %>
   <link rel="canonical" href="https://www.furora.media/" />
-  <!-- <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script"> -->
+  <link rel="preload" href="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>" as="script">
   <link href="/manifest.json" rel="manifest">
   <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
   <%_ } _%>

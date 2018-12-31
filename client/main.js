@@ -1,17 +1,17 @@
 // @flow
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import { StaticRouter } from 'react-router';
-import Layout from './src/components/Layout';
-import Store from './store';
-import Routes from './routes';
+import React from "react";
+import PropTypes from "prop-types";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { StaticRouter } from "react-router";
+import Layout from "./src/components/Layout";
+import Store from "./store";
+import Routes from "./routes";
 
 const propTypes = {
   isServerRoute: PropTypes.bool.isRequired,
   reqUrl: PropTypes.string,
-  context: PropTypes.object
+  context: PropTypes.Object
 };
 // type Props = {
 //   isServerRoute: boolean,
@@ -20,33 +20,29 @@ const propTypes = {
 // };
 
 const defaultProps = {
-  reqUrl: '',
-  context: {},
+  reqUrl: "",
+  context: {}
 };
 
 /* eslint-disable global-require */
 if (process.env.BROWSER) {
-  require('./public/styles/shared.scss');
+  require("./public/styles/shared.scss");
 }
 /* eslint-enable global-require */
 
-const App = ({
-  isServerRoute,
-  reqUrl,
-  context
-}) => (
+const App = ({ isServerRoute, reqUrl, context }) => (
   <Provider store={Store} key="provider">
     <Layout>
-      { isServerRoute &&
+      {isServerRoute && (
         <StaticRouter location={reqUrl} context={context}>
           <Routes />
         </StaticRouter>
-      }
-      { !isServerRoute &&
+      )}
+      {!isServerRoute && (
         <BrowserRouter>
           <Routes />
         </BrowserRouter>
-      }
+      )}
     </Layout>
   </Provider>
 );
