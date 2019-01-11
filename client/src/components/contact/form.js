@@ -1,25 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Recaptcha from 'react-gcaptcha';
-import TextInput from '../common/form/textInput';
-import TextArea from '../common/form/textArea';
-import Message from '../common/form/message';
+import React from "react";
+import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha";
+import TextInput from "../common/form/textInput";
+import TextArea from "../common/form/textArea";
+import Message from "../common/form/message";
 
 const propTypes = {
   message: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   saving: PropTypes.bool,
-  errors: PropTypes.object,
+  errors: PropTypes.Object,
   recaptchaVerified: PropTypes.bool.isRequired,
   recaptchaVerifiedCallback: PropTypes.func.isRequired,
-  formValidation: PropTypes.object,
+  formValidation: PropTypes.object
 };
+
+const recaptchaRef = React.createRef();
 
 const defaultProps = {
   saving: false,
   errors: {},
-  formValidation: {},
+  formValidation: {}
 };
 
 const ContactForm = ({
@@ -30,7 +32,7 @@ const ContactForm = ({
   errors,
   recaptchaVerified,
   recaptchaVerifiedCallback,
-  formValidation,
+  formValidation
 }) => (
   <form className="c-form">
     {saving && <div>Save</div>}
@@ -74,10 +76,10 @@ const ContactForm = ({
       </div>
       <div className="o-layout__item u-1/1">
         <div className="u-margin-bottom">
-          <Recaptcha
+          <ReCAPTCHA
+            ref={recaptchaRef}
             sitekey="6LdOtA4UAAAAAK8KZZz3G86eBImM2IrFGnJ-K_SY"
-            // onloadCallback={loaded}
-            verifyCallback={recaptchaVerifiedCallback}
+            onChange={recaptchaVerifiedCallback}
           />
         </div>
       </div>
@@ -85,7 +87,7 @@ const ContactForm = ({
         <input
           type="submit"
           disabled={!recaptchaVerified}
-          value={saving ? 'Saving...' : 'Submit'}
+          value={saving ? "Saving..." : "Submit"}
           className="c-btn c-btn--primary"
           onClick={onSubmit}
         />
