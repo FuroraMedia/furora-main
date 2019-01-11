@@ -77,6 +77,7 @@ const ContactForm = ({
       <div className="o-layout__item u-1/1">
         <div className="u-margin-bottom">
           <ReCAPTCHA
+            style={{ display: "inline-block" }}
             ref={recaptchaRef}
             sitekey="6LdOtA4UAAAAAK8KZZz3G86eBImM2IrFGnJ-K_SY"
             onChange={recaptchaVerifiedCallback}

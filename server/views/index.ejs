@@ -19,7 +19,7 @@
     <%- body %>
   </div>
   <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script>
+
   <%_ if (process.env.NODE_ENV === 'production') { _%>
   <% include ./register-service-worker.ejs %>
   <% include ./ga-tracking.ejs %>
