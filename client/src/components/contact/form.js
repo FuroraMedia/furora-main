@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReCAPTCHA from "react-google-recaptcha";
+import Recaptcha from "react-gcaptcha";
 import TextInput from "../common/form/textInput";
 import TextArea from "../common/form/textArea";
 import Message from "../common/form/message";
@@ -10,13 +10,11 @@ const propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   saving: PropTypes.bool,
-  errors: PropTypes.Object,
+  errors: PropTypes.object,
   recaptchaVerified: PropTypes.bool.isRequired,
   recaptchaVerifiedCallback: PropTypes.func.isRequired,
   formValidation: PropTypes.object
 };
-
-const recaptchaRef = React.createRef();
 
 const defaultProps = {
   saving: false,
@@ -76,11 +74,10 @@ const ContactForm = ({
       </div>
       <div className="o-layout__item u-1/1">
         <div className="u-margin-bottom">
-          <ReCAPTCHA
-            style={{ display: "inline-block" }}
-            ref={recaptchaRef}
+          <Recaptcha
             sitekey="6LdOtA4UAAAAAK8KZZz3G86eBImM2IrFGnJ-K_SY"
-            onChange={recaptchaVerifiedCallback}
+            // onloadCallback={loaded}
+            verifyCallback={recaptchaVerifiedCallback}
           />
         </div>
       </div>
