@@ -14,7 +14,7 @@ module.exports = {
   mode: "production",
   context: path.join(__dirname, "/client"),
   target: "web",
-  entry: ["./ClientApp.js"],
+  entry: ["./clientApp.js"],
   output: {
     path: path.join(__dirname, "/client/dist"),
     publicPath: "/static/",
