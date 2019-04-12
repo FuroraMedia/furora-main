@@ -8,21 +8,21 @@ import Layout from "./src/components/Layout";
 import Store from "./store";
 import Routes from "./routes";
 
-const propTypes = {
-  isServerRoute: PropTypes.bool.isRequired,
-  reqUrl: PropTypes.string,
-  context: PropTypes.Object
-};
+// const propTypes = {
+//   isServerRoute: PropTypes.bool.isRequired,
+//   reqUrl: PropTypes.string,
+//   context: PropTypes.Object
+// };
 // type Props = {
 //   isServerRoute: boolean,
 //   reqUrl: string,
 //   context: object,
 // };
 
-const defaultProps = {
-  reqUrl: "",
-  context: {}
-};
+// const defaultProps = {
+//   reqUrl: "",
+//   context: {}
+// };
 
 /* eslint-disable global-require */
 if (process.env.BROWSER) {
@@ -47,6 +47,6 @@ const App = ({ isServerRoute, reqUrl, context }) => (
   </Provider>
 );
 
-App.defaultProps = defaultProps;
-App.propTypes = propTypes;
+// App.defaultProps = defaultProps;
+// App.propTypes = propTypes;
 export default App;

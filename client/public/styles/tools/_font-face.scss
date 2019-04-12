@@ -16,11 +16,11 @@
 
 // Font-Face mixin
 
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf) {
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
   $src: null;
 
   $extmods: (
-    eot: '?',
+    // eot: '?',
     svg: '#' + str-replace($name, ' ', '_')
   );
 

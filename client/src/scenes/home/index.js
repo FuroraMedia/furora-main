@@ -1,5 +1,5 @@
-import React from 'react';
-import About from '../about';
+import React from "react";
+import About from "../../components/about";
 // import Services from '../services/Services';
 
 const HomePage = () => (
@@ -7,6 +7,5 @@ const HomePage = () => (
     <About />
   </div>
 );
-
 
 export default HomePage;
