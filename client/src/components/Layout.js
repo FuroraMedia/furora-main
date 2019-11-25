@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './common/header';
 import Footer from './common/footer';
-import ContactSection from './contact/formSection';
+// import ContactSection from './contact/formSection';
 
 const propTypes = {
   children: PropTypes.array.isRequired,
@@ -14,7 +14,7 @@ const Layout = props => (
     <main>
       {props.children}
     </main>
-    <ContactSection />
+    {/* <ContactSection /> */}
     <Footer />
   </div>
 );

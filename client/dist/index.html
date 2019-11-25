@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
+  <meta name="description" content="Furora Media Ltd, A Web Development Consultancy based in Essex / London">
+  <meta name="author" content="Furora Media Ltd">
+  <meta property="og:site_name" content="Furora Media Ltd" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Furora Media Ltd" />
+  <meta property="og:description" content="Furora Media Ltd, A Web Development Consultancy based in Essex / London" />
+  <meta property="og:url" content="https://www.furora.media/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Furora Media Ltd" />
+  <meta name="twitter:description" content="Furora Media Ltd, A Web Development Consultancy based in Essex / London" />
+  <meta name="twitter:url" content="https://www.furora.media/" />
+  <meta name="theme-color" content="#7e4a97">
+
+  <link rel="canonical" href="https://www.furora.media/" />
+  <link rel="preload" href="/static/bundle.js?v=32" as="script">
+  <link href="/manifest.json" rel="manifest">
+  <link href="/static/styles.css?v=32" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="/static/bundle.js?v=32"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then(function () {
+          // console.log('Service worker registered!');
+        })
+        .catch(function (error) {
+          console.log('Error registering service worker: ', error);
+        });
+    };
+  </script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      },
+        i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-87329096-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+</body>
+
+</html>

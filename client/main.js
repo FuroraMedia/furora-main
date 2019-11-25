@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { StaticRouter } from "react-router";
 import Layout from "./src/components/Layout";
-import Store from "./store";
+// import Store from "./store";
 import Routes from "./routes";
 
 // const propTypes = {
@@ -31,20 +31,19 @@ if (process.env.BROWSER) {
 /* eslint-enable global-require */
 
 const App = ({ isServerRoute, reqUrl, context }) => (
-  <Provider store={Store} key="provider">
-    <Layout>
-      {isServerRoute && (
-        <StaticRouter location={reqUrl} context={context}>
-          <Routes />
-        </StaticRouter>
-      )}
-      {!isServerRoute && (
-        <BrowserRouter>
-          <Routes />
-        </BrowserRouter>
-      )}
-    </Layout>
-  </Provider>
+
+  <Layout>
+    {isServerRoute && (
+      <StaticRouter location={reqUrl} context={context}>
+        <Routes />
+      </StaticRouter>
+    )}
+    {!isServerRoute && (
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    )}
+  </Layout>
 );
 
 // App.defaultProps = defaultProps;
